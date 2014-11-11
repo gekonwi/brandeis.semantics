@@ -1,5 +1,9 @@
-The Course
-===================
+## The Professor
+
+Taught by Professor [James Pustejovsky](http://www.cs.brandeis.edu/~jamesp/).
+
+
+## The Course
 
 This is a course for advanced undergraduate students and first-year graduate students, which focuses on the computational treatment of core semantic phenomena in language. Topics covered will include a preliminary formal introduction including first-order logic, lambda-calculus, and compositionality. Additionally, we will address these topics:
 
