@@ -1,6 +1,6 @@
 ## The Professor
 
-Taught by Professor [James Pustejovsky](http://www.cs.brandeis.edu/~jamesp/).
+[James Pustejovsky](http://www.cs.brandeis.edu/~jamesp/)
 
 
 ## The Course
