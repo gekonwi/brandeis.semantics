@@ -7,45 +7,87 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class BrandeisLexikonReader {
 	public static void main(String[] args) throws IOException {
-		Charset utf8 = Charset.forName("UTF-8");
 		Path input = Paths.get("brandeis_verb_lexikon-cleaned.txt");
+
+		List<Verb> verbs = readVerbs(input);
+
+		Set<String> mergedCodes = getMergedCodes(verbs);
+
+		printCodesSorted(mergedCodes);
+	}
+
+	public static class Verb {
+		private final String verb;
+		private final Set<String> codes;
+
+		public Verb(String verb, Set<String> codes) {
+			this.verb = verb;
+			this.codes = codes;
+		}
+
+		public String getVerb() {
+			return verb;
+		}
+
+		public Set<String> getCodes() {
+			return Collections.unmodifiableSet(codes);
+		}
+	}
+
+	public static List<Verb> readVerbs(Path input) throws IOException {
+		Charset utf8 = Charset.forName("UTF-8");
 		BufferedReader br = Files.newBufferedReader(input, utf8);
 
-		HashSet<String> subCatCodes = readCodes(br);
+		List<Verb> verbs = new ArrayList<>();
 
-		printCodes(subCatCodes);
-	}
-
-	private static HashSet<String> readCodes(BufferedReader br)
-			throws IOException {
-		HashSet<String> subCatCodes = new HashSet<>();
 		String line;
 		while ((line = br.readLine()) != null) {
-			String[] parts = line.split("\\s+");
-			System.out.println(Arrays.toString(parts));
-
-			String verb = parts[0].toLowerCase();
-			for (int i = 1; i < parts.length; i++) {
-				String code = parts[i]
-						.replaceAll("P_[a-z]+", "P_<preposition>");
-				subCatCodes.add(code);
-			}
+			Verb verb = parseVerb(line);
+			verbs.add(verb);
 		}
-		return subCatCodes;
+
+		return verbs;
 	}
 
-	private static void printCodes(HashSet<String> subCatCodes) {
-		System.out.println("\n\n\n" + subCatCodes.size()
-				+ " subcategory codes found:\n");
+	private static Verb parseVerb(String line) {
+		String[] parts = line.split("\\s+");
+
+		String verbString = parts[0].toLowerCase();
+
+		Set<String> codes = new HashSet<>();
+		for (int i = 1; i < parts.length; i++)
+			codes.add(parts[i]);
+
+		Verb verb = new Verb(verbString, codes);
+		return verb;
+	}
+
+	private static Set<String> getMergedCodes(List<Verb> verbs) {
+		Set<String> mergedCodes = new HashSet<>();
+
+		for (Verb verb : verbs) {
+			for (String code : verb.getCodes()) {
+				code = code.replaceAll("P_[a-z]+", "P_<preposition>");
+				mergedCodes.add(code);
+			}
+		}
+
+		return mergedCodes;
+	}
+
+	private static void printCodesSorted(Set<String> subCatCodes) {
+		System.out.println(subCatCodes.size() + " subcategory codes found:\n");
+
 		List<String> codesList = new ArrayList<>(subCatCodes);
 		Collections.sort(codesList);
+
 		for (String code : codesList)
 			System.out.println(code);
 	}
