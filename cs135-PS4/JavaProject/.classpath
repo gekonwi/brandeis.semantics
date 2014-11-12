@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="lib/simplenlg-v442/simplenlg-v4.4.2.jar" sourcepath="lib/simplenlg-v442/src">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/Users/georg/Documents/Google%20Drive/Uni/Brandeis/2014_2_fall/Semantics/cs135-PS4/JavaProject/lib/simplenlg-v442/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
