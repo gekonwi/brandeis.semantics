@@ -9,7 +9,7 @@ import simplenlg.lexicon.Lexicon;
 import simplenlg.phrasespec.SPhraseSpec;
 import simplenlg.realiser.english.Realiser;
 
-public class Main {
+public class Conjugator {
 
 	/**
 	 * Allows better readable function calls.
@@ -59,14 +59,8 @@ public class Main {
 
 	private static void conjugate(String verb, Tense tense, Perfect perfect,
 			Person person) {
-		// NLGElement verbElement = nlgFactory.createWord(verb,
-		// LexicalCategory.VERB);
-		// verbElement.setFeature(Feature.TENSE, tense);
-		// verbElement.setFeature(Feature.PERFECT, perfectForm);
-		// verbElement.setFeature(Feature.PERSON, person);
 
 		SPhraseSpec p = nlgFactory.createClause();
-		// p.setSubject("I");
 		p.setVerb(verb);
 		p.setFeature(Feature.TENSE, tense);
 		p.setFeature(Feature.PERFECT, perfect.getValue());
@@ -74,9 +68,6 @@ public class Main {
 		p.setFeature(Feature.NUMBER, NumberAgreement.SINGULAR);
 
 		String output = realiser.realiseSentence(p);
-
-		// NLGElement realized = realiser.realise(verbElement);
-		// String output = realized.getRealisation();
 
 		output = output.toLowerCase();
 
