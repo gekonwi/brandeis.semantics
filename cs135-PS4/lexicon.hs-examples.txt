@@ -1,0 +1,50 @@
+examples from Lexicon.hs
+
+negation:
+
+lexicon "did"    = [Cat "did"    "AUX" [] []]
+lexicon "didn't" = [Cat "didn't" "AUX" [] []]
+
+
+past tense:
+
+lexicon "smiled" = [Cat "smiled" "VP" [Past] []]
+lexicon "smile"  = [Cat "smile"  "VP" [Infl]  []]
+
+
+transitive:
+
+lexicon "loved" = [Cat "loved" "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
+lexicon "love"  = [Cat "love"  "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]]
+
+
+transitive or preposition phrase with "to"
+
+lexicon "gave" = [Cat "gave" "VP" [Past] [Cat "_" "NP" [AccOrDat] [], 
+    									  Cat "_" "PP" [To]       []], 
+  				  Cat "gave" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
+    									  Cat "_" "NP" [AccOrDat] []]]
+
+lexicon "give" = [Cat "give" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
+                  						   Cat "_" "PP" [To]       []],
+  				  Cat "give" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
+                  						   Cat "_" "NP" [AccOrDat] []]]
+
+different person and tense:
+
+lexicon "shouted"       = [Cat "shouted" "VP" [Past] []]
+
+lexicon "shout"         = [Cat "shout"         "VP" [Pres,Sg,Fst] [],
+						   Cat "shout"         "VP" [Pres,Sg,Snd] [],
+						   Cat "shout"         "VP" [Pres,Pl]  [],
+						   Cat "shout"         "VP" [Infl]  []]
+
+lexicon "shouts"    	= [Cat "shouts"        "VP" [Pres,Sg,Thrd] []]
+
+lexicon "will_shout"    = [Cat "will_shout"    "VP" [Fut] []]
+
+lexicon "have_shouted"	= [Cat "have_shouted"  "VP" [Perf,Sg,Fst] [],
+                       	   Cat "have_shouted"  "VP" [Perf,Sg,Snd] [],
+                       	   Cat "have_shouted"  "VP" [Perf,Pl] []]
+
+lexicon "has_shouted"   = [Cat "has_shouted"   "VP" [Perf,Sg,Thrd] []]

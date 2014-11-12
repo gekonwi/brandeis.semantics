@@ -15,7 +15,7 @@ import java.util.List;
 public class BrandeisLexikonReader {
 	public static void main(String[] args) throws IOException {
 		Charset utf8 = Charset.forName("UTF-8");
-		Path input = Paths.get("chosen_verbs_120");
+		Path input = Paths.get("brandeis_verb_lexikon-cleaned.txt");
 		BufferedReader br = Files.newBufferedReader(input, utf8);
 
 		HashSet<String> subCatCodes = readCodes(br);
@@ -32,8 +32,11 @@ public class BrandeisLexikonReader {
 			System.out.println(Arrays.toString(parts));
 
 			String verb = parts[0].toLowerCase();
-			for (int i = 1; i < parts.length; i++)
-				subCatCodes.add(parts[i]);
+			for (int i = 1; i < parts.length; i++) {
+				String code = parts[i]
+						.replaceAll("P_[a-z]+", "P_<preposition>");
+				subCatCodes.add(code);
+			}
 		}
 		return subCatCodes;
 	}

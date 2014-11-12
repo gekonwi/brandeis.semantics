@@ -1,0 +1,83 @@
+AC - arbitrary control.  See ING, TOVP.
+
+ACCING - Accusative followed by ing-phrase.
+			I appreciate you going to all this trouble.
+DO - direct object.
+			John hit Bill.
+EXC - exclamation.
+			I forgot what a jerk John is.
+FORNP - Indirect object introduced by 'for'.  Not for other PPs
+        with 'for'.
+			We brought a present for you.  (DO-FORNP)
+FORTO - for-to complement.
+			We meant for you to be invited.
+IF - If, used in TQ (see below.)
+INFQ - Infinitive indirect question.  Must be coded for wh -NP
+       (WH) or whether.  (WHETH).  When both are possible, there will be
+       a separate INFQ entry for each possibility.
+			INFQ-WH:  We asked what time to leave.
+			INFQ-WHETH:  We asked whether to bring dessert.
+ING - Gerundive.  Must be assigned control; may be assigned
+      raising.
+			I love swimming.
+INTRANS - intransitive.
+			The train stopped.
+IO - indirect object NP.
+			He gives the teacher a headache.  (IO-DO)
+M - Modal.  Used preceding any attribute when the verb REQUIRES
+    the use of a modal with that subcategorization.
+			We would like for you to leave.  (M-FORTO)
+N - Negative.  Used like M.  When both are required, they appear
+    in the order M-N.
+			We don't know if he came.  (N-TQ-IF)
+NOM - Predicate noun phrase.
+			She called him a fool.  (DO-NOM)
+NP - Used ONLY for the NP in a prepositional phrase:  e.g.,
+     P_to-NP.  See P.
+OC - object control.  See ING, TOVP.
+P_ - preposition.  Must be used with a preposition. Some prepositions
+     are grouped into classes, and the class itself is coded (see the
+     end of this document for a list of the prepositions and codes used
+     in the database). When more than one
+     preposition is possible in a subcategorization, it can be coded
+     as follows:  P_at-about-whatever.  Note that this means that you can
+     use EITHER the preposition 'at' or the preposition 'about'.
+			P_about-NP:  We heard about the fire.
+			P_at-into-NP:  We looked at the painting.  We looked int
+o the story.
+POSSING - possessive - ing.
+			We anticipated John's leaving.
+RO - raising to object.
+RS - raising to subject.  Raising may be assigned to ING or TOVP
+     when applicable.  It will follow the control attribute.
+SC - subject control.  See ING, TOVP.
+THAT - tensed complement introduced by 'that'.
+			I think that dinner is ready.
+TONP - indirect object introduced by 'to'.  Not for other uses of to.
+			We gave the book to Joan.  (DO-TONP)
+TOVP - infinitival verb phrase.  Must be assigned control; may be
+       assigned raising.
+			We want to read that book.
+TQ - tensed indirect question.  Must be coded for IF, WH or
+     WHETH.  If there is more than one possibility, there will be more
+     than one TQ entry for the verb, one for each possibility.
+			TQ-IF:  We asked if she arrived safely.
+			TQ-WH:  We asked what time she arrived.
+			TQ-WHETH:  We asked whether she arrived safely.
+VC - variable control.  See ING, TOVP.
+WH - Wh-extraction of an NP. Used in INFQ and TQ.
+WHETH - Whether.  Used in INFQ and TQ.
+
+The following prepositions and classes of prepositions are included.
+They are numbered here in the same way as was done in the original database.
+
+1.  about          11.  with
+2.  at             12.  directional (abbreviated as 'dir')
+3.  by             13.  against
+4.  for            14.  over
+5.  from           15.  through
+6.  in             16.  onto
+7.  into           17.  upon
+8.  of             18.  like
+9.  on             19.  locative (abbreviated as 'loc')
+10. to
