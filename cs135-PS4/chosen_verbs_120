@@ -1,0 +1,120 @@
+ABANDON     DO              DO-TONP
+ABBREVIATE  DO              DO-TONP
+ABSORB      DO
+ABSTRACT    DO-P_from-NP        DO
+ABUSE       DO
+ACCEPT      THAT            DO
+ACCOMPANY   DO
+ACCOMPLISH  DO
+ACCOUNT     DO              P_for-NP
+ACHIEVE     DO
+ACKNOWLEDGE EXC             POSSING         THAT            TONP-EXC        DO          N-TQ-WHETH
+ACT         P_like-NP          INTRANS
+ADAPT       P_to-NP
+ADD         DO              DO-P_to-NP       P_to-NP
+ADDRESS     DO              DO-TONP
+ADMIRE      DO              POSSING         THAT            DO-P_for-ING-OC    D        O-P_for-NP
+ADMIT       EXC             TONP-EXC        ING-SC          THAT            DO-T        ONP         P_to-ING-SC
+ADOPT       DO
+ADORE       POSSING         DO              ING-SC
+ADVERTISE   FORTO           THAT            DO              P_for-NP
+ADVISE      THAT            DO              DO-TOVP-OC      ING-AC          DO-P_about-TQ-WHETH  DO-P_about-TQ-WH     DO-TQ-WH        DO-P_about-INFQ-WHETHDO-P_about-INFQ-WH
+AFFORD      IO-DO           M-N-FORTO       M-N-ING-SC      M-DO            M-TO        VP-SC-RS    M-TOVP-SC-RS
+AGE         INTRANS
+AGREE       THAT            TOVP-SC         EXC             P_with-NP-THAT     P_with-NP-P_about-INFQ-WPwith-NP-P_on-INFQ-WPabout-on-INFQ-WH    P_about-on-EXC    N-P_about-on-TQ-WH    N-P_about-on-TQ-WHETH
+AIM         FORTO           DO              P_dir-NP
+ALLOW       IO-DO           ING-AC          DO-TOVP-OC      THAT            P_for-ING-AC       P_for-TQ-WHETH     P_for-TQ-WH        P_for-NP
+AMAZE       DO
+AMUSE       DO
+ANALYZE     DO              POSSING
+ANNOUNCE    DO              THAT            TONP-TQ-WH      TONP-TQ-WHETH   INFQ-WH         TQ-WH           N-TQ-WHETH
+ANNOY       DO
+ANSWER      DO              THAT            DO-THAT
+APOLOGIZE   INTRANS         P_for-NP
+APPEAR      TOVP-SC-RS      P_to-NP-TOVP-SC-RPto-NP
+APPLY       DO              TONP            DO-P_to-NP
+ARGUE       THAT            INTRANS         P_about-NP           P_about-EXC     P_about-ING-AC       P_about-over-TQ-WHETH  P_about-over-TQ-WH     P_about-POSSING      P_about-INFQ-WHETH   P_about-INFQ-WH
+ARRANGE     DO              TOVP-SC         FORTO
+ARRIVE      INTRANS         P_at-NP
+ASK         DO              TOVP-SC         DO-TOVP-VC      TQ-IF           TQ-WHETH        TQ-WH           DO-TQ-WH        DO-TQ-IF        DO-TQ-WHETH     INFQ-WH         INFQ-WHETH      DO-INFQ-WH      P_about-POSSING      DO-P_about-POSSING   P_about-TQ-WH        DO-P_about-TQ-WH     P_about-INFQ-WH      DO-P_about-INFQ-WH   P_about-NP           DO-P_about-NP        P_for-NP           DO-P_for-NP        IO-DO
+ASSIGN      DO-TONP         IO-DO
+ASSIST      DO              P_in-with-ING-SC    DO-P_in-with-ING-OC P_with-NP
+ASSOCIATE   P_with-NP          DO-P_with-NP
+ASSUME      DO              THAT            DO-TOVP-OC-RO
+ATTACH      DO-P_to-NP
+AUTHORIZE   DO-TOVP-OC
+AVOID       DO              ING-SC
+AWAIT       DO
+BAKE        DO              INTRANS         IO-DO           DO-FORNP
+BECOME      DO
+BEGIN       TOVP-SC-RS      DO              ING-SC
+BEHAVE      INTRANS         P_like-NP
+BELIEVE     EXC             DO              THAT            DO-TOVP-OC-RO   P_in-ING-AC       P_in-NP
+BELONG      INTRANS         P_to-NP
+BENEFIT     DO              P_from-NP           P_from-ING-SC       P_from-POSSING
+BET         THAT            DO-THAT         P_on-NP           P_on-TQ-WHETH     P_on-TQ-WH
+BID         DO-TOVP-OC
+BLAME       DO              DO-P_for-NP        DO-P_for-ING-OC
+BORE        DO              P_into-NP
+BOTHER      DO              TOVP-SC         DO-TOVP-OC      N-P_about-with-NP   N-P_about-with-ING-SC
+BREAK       DO
+BREATHE     INTRANS         DO
+BRING       DO              DO-P_to-NP       IO-DO
+BROADCAST   DO              DO-TONP         THAT
+BUILD       DO              DO-FORNP        IO-DO
+BUY         DO-FORNP        IO-DO           DO
+CALCULATE   DO              THAT            TQ-WH
+CALL        DO              DO-NOM          FORTO
+CANCEL      DO
+CAPTURE     DO
+CARE        N-INTRANS       THAT            P_about-TQ-WHETH     P_about-TQ-WH    P_about-INFQ         P_about-EXC          N-P_for-NP         N-P_about-ING-SC     N-P_for-POSSING
+CATCH       DO              DO-ING-OC       N-TQ-WHETH      N-TQ-WH
+CAUSE       IO-DO           DO-TOVP-OC      DO
+CERTIFY     DO              DO-TOVP-OC      THAT
+CHARGE      DO              THAT            DO-P_for-with-NP     DO-P_for-with-ING-OC
+CHASE       DO
+CHEAT       DO              INTRANS
+CHECK       DO              THAT            TQ-IF           TQ-WHETH        TQ-WH           P_for-on-NP         P_for-on-TQ-WH      P_for-on-TQ-WHETH
+CHERISH     DO
+CHEW        DO
+CHOOSE      DO              TOVP-SC         DO-TOVP-OC
+CITE        EXC             DO              DO-P_for-NP
+CLAIM       DO              THAT            TOVP-SC
+CLOSE       DO              INTRANS
+COACH       DO              DO-P_for-in-NP
+COLLECT     DO
+COMMAND     DO              DO-TOVP-OC
+COMMENT     THAT            P_on-NP           P_on-EXC          P_on-INFQ-WH    P_on-TQ-WH        P_on-ING-AC
+COMMIT      DO              DO-P_to-NP
+COMMUNICATE INTRANS         DO-TONP         TONP-EXC        THAT            P_with-NP          TONP-INFQ-WH    TONP-TQ-WH
+COMPLAIN    THAT            INTRANS         P_about-NP           P_about-EXC
+COMPLETE    DO
+COMPUTE     THAT            TQ-WH
+CONCENTRATE P_on-NP
+CONCLUDE    THAT            DO              EXC             DO-P_from-NP        P_from-NP-THAT      P_from-NP-INFQ-WH   P_from-NP-INFQ-WHETH
+CONDEMN     DO              POSSING         DO-TOVP-OC      DO-P_for-NP        DO-P_for-ING-OC    DO-P_to-NP
+CONFESS     INTRANS         TONP            THAT            P_to-ING-SC      P_to-NP
+CONFIRM     DO              THAT            EXC             TQ-WH           N-TQ-WHETH
+CONNECT     DO              DO-P_to-NP
+CONSIDER    DO              ING-SC          DO-TOVP-OC-RO   THAT            DO-NOM          DO-P_for-NP        TQ-WH           TQ-WHETH
+CONSTRAIN   DO              POSSING
+CONTINUE    ING-SC          DO              TOVP-SC-RS      P_with-NP          P_with-POSSING
+CONTRIBUTE  DO              DO-P_to-NP       P_to-NP
+CONTROL     DO
+CONVEY      DO              DO-TONP         THAT            TONP-THAT       TONP-EXC        TONP-TQ-WH      TONP-INFQ-WH
+CONVINCE    DO-TOVP-OC      DO-THAT         DO              DO-P_of-NP        DO-P_of-EXC
+COUNT       DO              P_on-NP           P_on-NP-TOVP-OC   P_on-NP-ING-RO-OC
+COVER       DO              N-TQ-WHETH      TQ-WH           INFQ-WH
+CRITICIZE   DO              DO-P_for-NP        DO-P_for-ING-OC    DO-P_for-POSSING
+CRY         INTRANS         TONP            THAT            P_about-over-NP     P_about-over-ING-SC    P_about-over-POSSING
+DAMAGE      DO
+DANCE       DO              INTRANS         P_with-NP
+DARE        ING-SC          TOVP-SC         DO-TOVP-OC
+DATE        DO
+DEBATE      DO              ING-SC          TQ-IF           TQ-WHETH
+DECIDE      TOVP-SC         THAT            DO              TQ-WH           N-TQ-WHETH      INFQ-WH         N-P_on-TQ-WHETH   P_on-TQ-WH        P_on-ING-SC
+DECLARE     DO              DO-NOM          DO-TOVP-OC-RO   THAT            EXC
+DECLINE     DO              TOVP-SC
+DECORATE    DO
+DEFINE      DO              DO-TOVP-OC
+DELAY       DO              INTRANS
