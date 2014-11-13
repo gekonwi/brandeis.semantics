@@ -134,34 +134,30 @@ lexicon "cheer"     = [Cat "cheer"     "VP" [Infl]  []]
 lexicon "shuddered" = [Cat "shuddered" "VP" [Past] []]
 lexicon "shudder"   = [Cat "shudder"   "VP" [Infl]  []]
 
-lexicon "loved"        = 
- [Cat "loved"    "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
-lexicon "love"         = 
- [Cat "love"     "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
-lexicon "admired"      = 
- [Cat "admired"  "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
-lexicon "admire"       = 
- [Cat "admire"   "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
-
-lexicon "helped"       = 
- [Cat "helped"   "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
-lexicon "help"         = 
- [Cat "help"     "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
-lexicon "defeated"       = 
- [Cat "defeated" "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
-lexicon "defeat"         = 
- [Cat "defeat"   "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
+lexicon "loved"     = [Cat "loved"    "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
+lexicon "love"         = [Cat "love"     "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
+                    
+lexicon "admired"      = [Cat "admired"  "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
+lexicon "admire"       = [Cat "admire"   "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
+                          
+lexicon "helped"       = [Cat "helped"   "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
+lexicon "help"         = [Cat "help"     "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
+                    
+lexicon "defeated"     = [Cat "defeated" "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
+lexicon "defeat"       = [Cat "defeat"   "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
 
 lexicon "gave"         = 
- [Cat "gave" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
-                    Cat "_" "PP" [To]       []], 
-  Cat "gave" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
-                     Cat "_" "NP" [AccOrDat]  []]]
+ [Cat "gave" "VP" [Past]  [Cat "_" "NP" [AccOrDat] [],
+                           Cat "_" "PP" [To]       []],
+  Cat "gave" "VP" [Past]  [Cat "_" "NP" [AccOrDat] [],
+                           Cat "_" "NP" [AccOrDat] []]]
+
 lexicon "give"         = 
  [Cat "give" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
                            Cat "_" "PP" [To]       []],
   Cat "give" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
                            Cat "_" "NP" [AccOrDat] []]]
+
 lexicon "sold" = 
  [Cat "sold" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
                            Cat "_" "PP" [To]       []],

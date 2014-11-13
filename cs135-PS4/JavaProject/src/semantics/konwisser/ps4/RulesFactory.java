@@ -20,7 +20,7 @@ public class RulesFactory {
 
 	public static TransformationRule DO_TONP() {
 		String pattern = "DO-TONP";
-		String output = "Cat \"<verb>\" \"VP\" [Infl]  [Cat \"_\" \"NP\" [AccOrDat] [], Cat \"_\" \"PP\" [To] []]";
+		String output = getPrepositionRuleOutput("to");
 		return getSimmpleContentRule(pattern, output);
 	}
 
@@ -67,7 +67,7 @@ public class RulesFactory {
 
 	private static List<TransformationRule> getRegularPrepositionRules() {
 		String[] prepositions = { "about", "at", "by", "for", "from", "in",
-				"into", "of", "on", "with", "against", "over", "through",
+				"into", "of", "on", "to", "with", "against", "over", "through",
 				"onto", "upon", "like" };
 
 		List<TransformationRule> rules = new ArrayList<>();
