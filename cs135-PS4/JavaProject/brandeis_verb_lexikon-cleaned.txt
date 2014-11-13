@@ -489,7 +489,7 @@ LIVE        INTRANS         P_at-in-NP
 LOATHE      DO              ING-SC
 LOCATE      DO              DO-P_abouton-NP
 LONG        TOVP-SC         P_for-NP
-LOOK        P_likeaboutonlocR-NP          P_at-into-NP
+LOOK        P_likeaboutonloc-NP          P_at-into-NP
 LOSE        DO              INTRANS         P_at-NP           DO-P_abouton-NP
 LOVE        DO              M-FORTO         M-DO-TOVP-OC    ING-SC-RO       TOVP-SC-RO
 MAINTAIN    DO              THAT
@@ -529,7 +529,7 @@ NOTIFY      DO              DO-THAT         DO-P_of-NP
 NOURISH             DO          DO-P_with-NP
 NUDGE       DO
 NURSE       DO              INTRANS
-OBEY        ]
+OBEY        DO
 OBJECT      P_to-NP          INTRANS         P_to-POSSING
 OBSERVE     DO              DO-TOVP-OC-RO   THAT
 OBTAIN      DO
