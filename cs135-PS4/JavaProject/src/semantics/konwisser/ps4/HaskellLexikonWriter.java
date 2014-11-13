@@ -58,7 +58,8 @@ public class HaskellLexikonWriter {
 		Set<String> codes = verb.getCodes();
 
 		sb.append("\n");
-		sb.append(getLexiconEntry(infinitive, codes, "Infl"));
+		sb.append(getLexiconEntry(infinitive, codes, "Pres,Sg,Fst",
+				"Pres,Sg,Snd", "Pres,Pl", "Infl"));
 
 		sb.append(getLexiconEntry(codes, infinitive, Tense.PRESENT,
 				Perfect.FALSE, Person.THIRD, "Pres,Sg,Thrd"));
@@ -67,7 +68,8 @@ public class HaskellLexikonWriter {
 				Person.THIRD, "Past"));
 
 		sb.append(getLexiconEntry(codes, infinitive, Tense.PRESENT,
-				Perfect.TRUE, Person.FIRST, "Perf,Sg,Fst"));
+				Perfect.TRUE, Person.FIRST, "Perf,Sg,Fst", "Perf,Sg,Snd",
+				"Perf,Pl"));
 
 		sb.append(getLexiconEntry(codes, infinitive, Tense.PRESENT,
 				Perfect.TRUE, Person.THIRD, "Perf,Sg,Thrd"));
@@ -79,16 +81,16 @@ public class HaskellLexikonWriter {
 	}
 
 	private String getLexiconEntry(Set<String> codes, String infinitive,
-			Tense tense, Perfect perfect, Person person, String inflection)
+			Tense tense, Perfect perfect, Person person, String... inflections)
 			throws NoTransformationRuleFoundException {
 
 		String conjugated = conj.conjugate(infinitive, tense, perfect, person);
 		conjugated = conjugated.replaceAll(" ", "_");
-		return "\n" + getLexiconEntry(conjugated, codes, inflection);
+		return "\n" + getLexiconEntry(conjugated, codes, inflections);
 	}
 
 	private String getLexiconEntry(String verb, Set<String> codes,
-			String inflection) throws NoTransformationRuleFoundException {
+			String... inflections) throws NoTransformationRuleFoundException {
 		StringBuilder sb = new StringBuilder();
 		sb.append("lexicon \"" + verb + "\" = [");
 
@@ -104,11 +106,9 @@ public class HaskellLexikonWriter {
 				sb.append("\n\t");
 
 				String ruleOutput = rule.apply(verb, code);
-				ruleOutput = ruleOutput.replaceAll("\n", "\n\t");
 
 				// TODO this is dirty
-				ruleOutput = ruleOutput.replaceAll("\\[Infl\\]", "["
-						+ inflection + "]");
+				ruleOutput = forEachInflection(inflections, ruleOutput);
 
 				sb.append(ruleOutput);
 				sb.append(",");
@@ -124,5 +124,18 @@ public class HaskellLexikonWriter {
 		sb.append("\n\t]");
 
 		return sb.toString();
+	}
+
+	private String forEachInflection(String[] inflections, String ruleOutput) {
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < inflections.length; i++) {
+			String infl = inflections[i];
+			sb.append(ruleOutput.replaceFirst("\\[Infl\\]", "[" + infl + "]"));
+			if (i != inflections.length - 1)
+				sb.append(",\n");
+		}
+
+		return sb.toString().replaceAll("\n", "\n\t");
 	}
 }
