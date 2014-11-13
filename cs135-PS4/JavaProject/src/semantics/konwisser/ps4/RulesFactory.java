@@ -58,7 +58,7 @@ public class RulesFactory {
 		char first = Character.toUpperCase(preposition.charAt(0));
 		String prepUpper = first + preposition.substring(1);
 
-		String output = "Cat \"<verb>\" \"VP\" [Infl]  "
+		String output = "Cat \"<verb>\" \"VP\" [Infl] "
 				+ "[Cat \"_\" \"NP\" [AccOrDat] [], Cat \"_\" \"PP\" ["
 				+ prepUpper + "] []]";
 
