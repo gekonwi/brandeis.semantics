@@ -73,7 +73,7 @@ public class HaskellLexikonWriter {
 		// delete the last comma
 		sb.deleteCharAt(sb.length() - 1);
 
-		sb.append("\n]\n");
+		sb.append("\n\t]\n");
 
 		return sb.toString();
 	}
