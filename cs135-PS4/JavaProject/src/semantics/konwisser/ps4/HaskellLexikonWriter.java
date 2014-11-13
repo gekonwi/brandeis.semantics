@@ -60,8 +60,11 @@ public class HaskellLexikonWriter {
 
 				appliedOne = true;
 
-				sb.append("\n\t");
-				sb.append(rule.apply(verb.getVerb(), code));
+				List<String> lines = rule.apply(verb.getVerb(), code);
+				for (String line : lines) {
+					sb.append("\n\t");
+					sb.append(line);
+				}
 				sb.append(",");
 			}
 		}
