@@ -1,6 +1,5 @@
 package semantics.konwisser.ps4;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 public final class TransformationRule {
@@ -21,7 +20,7 @@ public final class TransformationRule {
 		 * @param code
 		 * @return one String per line
 		 */
-		public List<String> apply(String verb, String code);
+		public String apply(String verb, String code);
 
 	}
 
@@ -37,7 +36,7 @@ public final class TransformationRule {
 		this.codePattern = Pattern.compile(content.getCodePattern());
 	}
 
-	public List<String> apply(String verb, String code) {
+	public String apply(String verb, String code) {
 		if (!applicable(code))
 			throw new IllegalArgumentException(
 					"This rule is not applicable to the code ["

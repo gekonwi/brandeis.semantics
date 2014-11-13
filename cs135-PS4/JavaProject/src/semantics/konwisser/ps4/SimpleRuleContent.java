@@ -1,8 +1,5 @@
 package semantics.konwisser.ps4;
 
-import java.util.Arrays;
-import java.util.List;
-
 import semantics.konwisser.ps4.TransformationRule.Content;
 
 // TODO find better name
@@ -51,10 +48,10 @@ public class SimpleRuleContent implements Content {
 	}
 
 	@Override
-	public List<String> apply(String verb, String code) {
+	public String apply(String verb, String code) {
 		String output = outputWithPlaceholders.replaceAll(VERB_PLACEHOLDER,
 				verb);
-		return Arrays.asList(output);
+		return output;
 	}
 
 }

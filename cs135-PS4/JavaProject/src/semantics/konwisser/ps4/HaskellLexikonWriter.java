@@ -23,7 +23,7 @@ public class HaskellLexikonWriter {
 		rules.add(RulesFactory.DO());
 		rules.add(RulesFactory.IO_DO());
 		rules.add(RulesFactory.DO_TONP());
-		// rules.add(RulesFactory.P_prep_NP());
+		rules.addAll(RulesFactory.P_prep_NP());
 	}
 
 	public void write(Path output, List<Verb> verbs) throws IOException {
@@ -51,25 +51,23 @@ public class HaskellLexikonWriter {
 		StringBuilder sb = new StringBuilder();
 		sb.append("lexicon \"" + verb.getVerb() + "\" = [");
 
-		boolean appliedOne = false;
+		boolean minOneRuleFound = false;
 
 		for (String code : verb.getCodes()) {
 			for (TransformationRule rule : rules) {
 				if (!rule.applicable(code))
 					continue;
 
-				appliedOne = true;
+				minOneRuleFound = true;
 
-				List<String> lines = rule.apply(verb.getVerb(), code);
-				for (String line : lines) {
-					sb.append("\n\t");
-					sb.append(line);
-				}
+				String ruleOutput = rule.apply(verb.getVerb(), code);
+				sb.append("\n\t");
+				sb.append(ruleOutput.replaceAll("\n", "\n\t"));
 				sb.append(",");
 			}
 		}
 
-		if (!appliedOne)
+		if (!minOneRuleFound)
 			throw new NoTransformationRuleFoundException();
 
 		// delete the last comma

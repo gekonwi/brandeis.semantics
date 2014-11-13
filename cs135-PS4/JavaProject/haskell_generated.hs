@@ -16,12 +16,20 @@ lexicon "abhor" = [
 	Cat "abhor" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "abide" = [
+	Cat "abide" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [By] []]
+]
+
 lexicon "abolish" = [
 	Cat "abolish" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "absorb" = [
 	Cat "absorb" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "abstain" = [
+	Cat "abstain" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []]
 ]
 
 lexicon "abstract" = [
@@ -53,7 +61,8 @@ lexicon "accomplish" = [
 ]
 
 lexicon "account" = [
-	Cat "account" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "account" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "account" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "accuse" = [
@@ -70,6 +79,10 @@ lexicon "acknowledge" = [
 
 lexicon "acquire" = [
 	Cat "acquire" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "act" = [
+	Cat "act" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Like] []]
 ]
 
 lexicon "add" = [
@@ -106,7 +119,8 @@ lexicon "advance" = [
 ]
 
 lexicon "advertise" = [
-	Cat "advertise" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "advertise" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "advertise" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "advise" = [
@@ -134,7 +148,12 @@ lexicon "aid" = [
 ]
 
 lexicon "aim" = [
-	Cat "aim" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "aim" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "aim" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "aim" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "aim" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "aim" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "aim" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "alarm" = [
@@ -151,7 +170,8 @@ lexicon "allocate" = [
 ]
 
 lexicon "allow" = [
-	Cat "allow" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []]
+	Cat "allow" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+	Cat "allow" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "amaze" = [
@@ -186,6 +206,10 @@ lexicon "anticipate" = [
 	Cat "anticipate" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "apologize" = [
+	Cat "apologize" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
 lexicon "apply" = [
 	Cat "apply" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -207,7 +231,12 @@ lexicon "approach" = [
 ]
 
 lexicon "approve" = [
-	Cat "approve" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "approve" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "approve" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Of] []]
+]
+
+lexicon "argue" = [
+	Cat "argue" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []]
 ]
 
 lexicon "arouse" = [
@@ -218,8 +247,14 @@ lexicon "arrange" = [
 	Cat "arrange" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "arrive" = [
+	Cat "arrive" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []]
+]
+
 lexicon "ask" = [
+	Cat "ask" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []],
 	Cat "ask" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "ask" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []],
 	Cat "ask" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -237,7 +272,12 @@ lexicon "assign" = [
 ]
 
 lexicon "assist" = [
-	Cat "assist" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "assist" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "assist" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
+]
+
+lexicon "associate" = [
+	Cat "associate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
 ]
 
 lexicon "assume" = [
@@ -277,7 +317,8 @@ lexicon "await" = [
 ]
 
 lexicon "babble" = [
-	Cat "babble" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "babble" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "babble" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []]
 ]
 
 lexicon "badger" = [
@@ -298,7 +339,8 @@ lexicon "ban" = [
 ]
 
 lexicon "bang" = [
-	Cat "bang" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "bang" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "bang" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
 ]
 
 lexicon "bear" = [
@@ -321,16 +363,26 @@ lexicon "begin" = [
 	Cat "begin" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "behave" = [
+	Cat "behave" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Like] []]
+]
+
 lexicon "behold" = [
 	Cat "behold" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "believe" = [
+	Cat "believe" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
 	Cat "believe" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "benefit" = [
+	Cat "benefit" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []],
 	Cat "benefit" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "bet" = [
+	Cat "bet" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
 ]
 
 lexicon "betray" = [
@@ -358,7 +410,8 @@ lexicon "boast" = [
 ]
 
 lexicon "bore" = [
-	Cat "bore" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "bore" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "bore" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "bother" = [
@@ -543,6 +596,10 @@ lexicon "commend" = [
 	Cat "commend" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
 ]
 
+lexicon "comment" = [
+	Cat "comment" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
+]
+
 lexicon "commision" = [
 	Cat "commision" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -552,7 +609,12 @@ lexicon "commit" = [
 ]
 
 lexicon "communicate" = [
+	Cat "communicate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []],
 	Cat "communicate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+]
+
+lexicon "complain" = [
+	Cat "complain" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []]
 ]
 
 lexicon "complete" = [
@@ -576,6 +638,10 @@ lexicon "conceive" = [
 	Cat "conceive" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "concentrate" = [
+	Cat "concentrate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
+]
+
 lexicon "conclude" = [
 	Cat "conclude" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -586,6 +652,10 @@ lexicon "condemn" = [
 
 lexicon "condition" = [
 	Cat "condition" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "confide" = [
+	Cat "confide" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []]
 ]
 
 lexicon "confirm" = [
@@ -613,7 +683,8 @@ lexicon "contest" = [
 ]
 
 lexicon "continue" = [
-	Cat "continue" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "continue" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "continue" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
 ]
 
 lexicon "contract" = [
@@ -650,7 +721,8 @@ lexicon "counsel" = [
 ]
 
 lexicon "count" = [
-	Cat "count" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "count" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "count" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
 ]
 
 lexicon "cover" = [
@@ -661,12 +733,17 @@ lexicon "criticize" = [
 	Cat "criticize" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "dabble" = [
+	Cat "dabble" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []]
+]
+
 lexicon "damage" = [
 	Cat "damage" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "dance" = [
-	Cat "dance" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "dance" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "dance" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
 ]
 
 lexicon "date" = [
@@ -717,6 +794,10 @@ lexicon "delegate" = [
 	Cat "delegate" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "deliberate" = [
+	Cat "deliberate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
+]
+
 lexicon "delight" = [
 	Cat "delight" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -743,6 +824,10 @@ lexicon "deny" = [
 	Cat "deny" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "depend" = [
+	Cat "depend" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
+]
+
 lexicon "depict" = [
 	Cat "depict" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -752,10 +837,12 @@ lexicon "deploy" = [
 ]
 
 lexicon "derive" = [
+	Cat "derive" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []],
 	Cat "derive" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "descend" = [
+	Cat "descend" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []],
 	Cat "descend" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -793,7 +880,8 @@ lexicon "determine" = [
 ]
 
 lexicon "develop" = [
-	Cat "develop" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "develop" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "develop" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "devise" = [
@@ -824,6 +912,10 @@ lexicon "direct" = [
 
 lexicon "disallow" = [
 	Cat "disallow" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "disapprove" = [
+	Cat "disapprove" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
 ]
 
 lexicon "disbelieve" = [
@@ -882,8 +974,13 @@ lexicon "display" = [
 	Cat "display" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "disose" = [
+	Cat "disose" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Of] []]
+]
+
 lexicon "dispute" = [
-	Cat "dispute" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "dispute" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "dispute" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Of] []]
 ]
 
 lexicon "disregard" = [
@@ -955,6 +1052,10 @@ lexicon "educate" = [
 	Cat "educate" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "elaborate" = [
+	Cat "elaborate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
+]
+
 lexicon "elect" = [
 	Cat "elect" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -1000,6 +1101,7 @@ lexicon "endure" = [
 ]
 
 lexicon "engage" = [
+	Cat "engage" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
 	Cat "engage" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -1012,6 +1114,7 @@ lexicon "enlarge" = [
 ]
 
 lexicon "enlist" = [
+	Cat "enlist" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
 	Cat "enlist" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -1130,7 +1233,8 @@ lexicon "favor" = [
 ]
 
 lexicon "fear" = [
-	Cat "fear" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "fear" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "fear" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "feel" = [
@@ -1170,7 +1274,12 @@ lexicon "flatter" = [
 ]
 
 lexicon "fly" = [
-	Cat "fly" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "fly" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "fly" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "fly" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "fly" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "fly" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "fly" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "fold" = [
@@ -1254,7 +1363,8 @@ lexicon "grant" = [
 ]
 
 lexicon "grasp" = [
-	Cat "grasp" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "grasp" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "grasp" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []]
 ]
 
 lexicon "grow" = [
@@ -1279,7 +1389,8 @@ lexicon "harass" = [
 ]
 
 lexicon "harden" = [
-	Cat "harden" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "harden" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "harden" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "harm" = [
@@ -1312,11 +1423,24 @@ lexicon "hit" = [
 ]
 
 lexicon "hold" = [
-	Cat "hold" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "hold" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "hold" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
+lexicon "hope" = [
+	Cat "hope" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "hound" = [
 	Cat "hound" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "hurry" = [
+	Cat "hurry" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "hurry" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "hurry" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "hurry" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "hurry" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "hypothesize" = [
@@ -1328,7 +1452,8 @@ lexicon "idealize" = [
 ]
 
 lexicon "identify" = [
-	Cat "identify" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "identify" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "identify" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
 ]
 
 lexicon "ignore" = [
@@ -1412,12 +1537,20 @@ lexicon "injure" = [
 	Cat "injure" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "inquire" = [
+	Cat "inquire" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Of] []]
+]
+
 lexicon "inscribe" = [
 	Cat "inscribe" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "insert" = [
 	Cat "insert" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "insist" = [
+	Cat "insist" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
 ]
 
 lexicon "inspect" = [
@@ -1464,6 +1597,10 @@ lexicon "invert" = [
 	Cat "invert" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "invest" = [
+	Cat "invest" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []]
+]
+
 lexicon "investigate" = [
 	Cat "investigate" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -1477,6 +1614,7 @@ lexicon "involve" = [
 ]
 
 lexicon "join" = [
+	Cat "join" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
 	Cat "join" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -1504,8 +1642,16 @@ lexicon "lack" = [
 	Cat "lack" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "lag" = [
+	Cat "lag" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []]
+]
+
 lexicon "lament" = [
 	Cat "lament" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "laugh" = [
+	Cat "laugh" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []]
 ]
 
 lexicon "lead" = [
@@ -1546,7 +1692,12 @@ lexicon "locate" = [
 	Cat "locate" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "long" = [
+	Cat "long" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
 lexicon "lose" = [
+	Cat "lose" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
 	Cat "lose" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -1567,6 +1718,10 @@ lexicon "make-out" = [
 	Cat "make-out" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "make-sure" = [
+	Cat "make-sure" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Of] []]
+]
+
 lexicon "manage" = [
 	Cat "manage" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -1577,6 +1732,10 @@ lexicon "mark" = [
 
 lexicon "measure" = [
 	Cat "measure" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "meditate" = [
+	Cat "meditate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Of] []]
 ]
 
 lexicon "meet" = [
@@ -1613,11 +1772,16 @@ lexicon "misunderstand" = [
 ]
 
 lexicon "mourn" = [
-	Cat "mourn" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "mourn" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "mourn" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "move" = [
 	Cat "move" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "mumble" = [
+	Cat "mumble" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []]
 ]
 
 lexicon "nag" = [
@@ -1641,7 +1805,8 @@ lexicon "neglect" = [
 ]
 
 lexicon "negotiate" = [
-	Cat "negotiate" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "negotiate" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "negotiate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
 ]
 
 lexicon "nominate" = [
@@ -1685,11 +1850,16 @@ lexicon "omit" = [
 ]
 
 lexicon "open" = [
-	Cat "open" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "open" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "open" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "opose" = [
 	Cat "opose" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "opt" = [
+	Cat "opt" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "ordain" = [
@@ -1721,12 +1891,22 @@ lexicon "own" = [
 	Cat "own" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "participate" = [
+	Cat "participate" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []]
+]
+
 lexicon "pass" = [
-	Cat "pass" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "pass" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "pass" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "pass" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "pass" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "pass" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "pass" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "pay" = [
-	Cat "pay" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "pay" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "pay" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "perceive" = [
@@ -1750,7 +1930,8 @@ lexicon "pester" = [
 ]
 
 lexicon "petition" = [
-	Cat "petition" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "petition" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "petition" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "phone" = [
@@ -1765,6 +1946,10 @@ lexicon "pile" = [
 	Cat "pile" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "pine" = [
+	Cat "pine" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
 lexicon "pity" = [
 	Cat "pity" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -1774,7 +1959,8 @@ lexicon "plan" = [
 ]
 
 lexicon "play" = [
-	Cat "play" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "play" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "play" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
 ]
 
 lexicon "plead" = [
@@ -1798,11 +1984,16 @@ lexicon "possess" = [
 ]
 
 lexicon "practice" = [
-	Cat "practice" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "practice" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "practice" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "praise" = [
 	Cat "praise" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "pray" = [
+	Cat "pray" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "preach" = [
@@ -1844,6 +2035,14 @@ lexicon "press" = [
 
 lexicon "prevent" = [
 	Cat "prevent" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "proceed" = [
+	Cat "proceed" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "proceed" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "proceed" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "proceed" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "proceed" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "proclaim" = [
@@ -1953,6 +2152,7 @@ lexicon "raise" = [
 
 lexicon "read" = [
 	Cat "read" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "read" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []],
 	Cat "read" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
 	Cat "read" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
 ]
@@ -1963,6 +2163,14 @@ lexicon "reaffirm" = [
 
 lexicon "realize" = [
 	Cat "realize" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "reason" = [
+	Cat "reason" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
+]
+
+lexicon "rebel" = [
+	Cat "rebel" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Against] []]
 ]
 
 lexicon "recall" = [
@@ -2002,11 +2210,20 @@ lexicon "refer" = [
 ]
 
 lexicon "reflect" = [
-	Cat "reflect" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "reflect" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "reflect" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
+]
+
+lexicon "refrain" = [
+	Cat "refrain" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []]
 ]
 
 lexicon "refuse" = [
 	Cat "refuse" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "register" = [
+	Cat "register" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "regret" = [
@@ -2014,7 +2231,8 @@ lexicon "regret" = [
 ]
 
 lexicon "rehearse" = [
-	Cat "rehearse" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "rehearse" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "rehearse" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "reinforce" = [
@@ -2055,8 +2273,20 @@ lexicon "relish" = [
 	Cat "relish" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "rely" = [
+	Cat "rely" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
+]
+
+lexicon "remark" = [
+	Cat "remark" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
+]
+
 lexicon "remember" = [
 	Cat "remember" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "reminisce" = [
+	Cat "reminisce" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []]
 ]
 
 lexicon "remove" = [
@@ -2138,6 +2368,7 @@ lexicon "retract" = [
 ]
 
 lexicon "return" = [
+	Cat "return" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []],
 	Cat "return" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -2297,11 +2528,20 @@ lexicon "shave" = [
 ]
 
 lexicon "shine" = [
-	Cat "shine" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "shine" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "shine" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "shine" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "shine" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "shine" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "shine" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "shoot" = [
 	Cat "shoot" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "shop" = [
+	Cat "shop" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "show" = [
@@ -2323,11 +2563,20 @@ lexicon "shut" = [
 ]
 
 lexicon "signal" = [
-	Cat "signal" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "signal" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "signal" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "sink" = [
 	Cat "sink" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "sit" = [
+	Cat "sit" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "sit" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "sit" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "sit" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "sit" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "sketch" = [
@@ -2335,11 +2584,17 @@ lexicon "sketch" = [
 ]
 
 lexicon "slide" = [
-	Cat "slide" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "slide" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "slide" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "slide" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "slide" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "slide" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "slide" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "slip" = [
-	Cat "slip" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "slip" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "slip" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
 ]
 
 lexicon "smell" = [
@@ -2363,7 +2618,8 @@ lexicon "soothe" = [
 ]
 
 lexicon "speak" = [
-	Cat "speak" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "speak" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "speak" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []]
 ]
 
 lexicon "specify" = [
@@ -2388,6 +2644,10 @@ lexicon "spread" = [
 
 lexicon "sprinkle" = [
 	Cat "sprinkle" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "spy" = [
+	Cat "spy" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []]
 ]
 
 lexicon "squash" = [
@@ -2423,6 +2683,7 @@ lexicon "stop" = [
 ]
 
 lexicon "strain" = [
+	Cat "strain" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
 	Cat "strain" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -2430,8 +2691,17 @@ lexicon "stress" = [
 	Cat "stress" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "strive" = [
+	Cat "strive" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
+lexicon "struggle" = [
+	Cat "struggle" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []]
+]
+
 lexicon "study" = [
-	Cat "study" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "study" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "study" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "submit" = [
@@ -2448,6 +2718,7 @@ lexicon "sue" = [
 ]
 
 lexicon "suffer" = [
+	Cat "suffer" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []],
 	Cat "suffer" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
@@ -2491,6 +2762,10 @@ lexicon "take" = [
 	Cat "take" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
 	Cat "take" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
 	Cat "take" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+]
+
+lexicon "talk" = [
+	Cat "talk" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []]
 ]
 
 lexicon "tame" = [
@@ -2596,7 +2871,12 @@ lexicon "try" = [
 ]
 
 lexicon "turn" = [
-	Cat "turn" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "turn" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "turn" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "turn" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "turn" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "turn" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "turn" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "turn-out" = [
@@ -2664,6 +2944,11 @@ lexicon "verify" = [
 	Cat "verify" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
+lexicon "vie" = [
+	Cat "vie" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [With] []],
+	Cat "vie" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
 lexicon "violate" = [
 	Cat "violate" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
@@ -2673,16 +2958,34 @@ lexicon "volunteer" = [
 	Cat "volunteer" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
 ]
 
+lexicon "vote" = [
+	Cat "vote" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
+lexicon "wait" = [
+	Cat "wait" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
 lexicon "wake" = [
 	Cat "wake" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "walk" = [
-	Cat "walk" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "walk" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "walk" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "walk" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "walk" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "walk" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "walk" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "wander" = [
-	Cat "wander" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+	Cat "wander" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "wander" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+	Cat "wander" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [On] []],
+	Cat "wander" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Onto] []],
+	Cat "wander" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [In] []],
+	Cat "wander" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [Into] []]
 ]
 
 lexicon "want" = [
@@ -2706,11 +3009,13 @@ lexicon "watch" = [
 ]
 
 lexicon "wave" = [
+	Cat "wave" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
 	Cat "wave" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "whisper" = [
 	Cat "whisper" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "whisper" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []],
 	Cat "whisper" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
 ]
 
@@ -2729,19 +3034,30 @@ lexicon "wipe" = [
 
 lexicon "wire" = [
 	Cat "wire" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+	Cat "wire" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []],
 	Cat "wire" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
 ]
 
+lexicon "wish" = [
+	Cat "wish" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
+]
+
 lexicon "withdraw" = [
+	Cat "withdraw" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []],
 	Cat "withdraw" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "withhold" = [
+	Cat "withhold" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [From] []],
 	Cat "withhold" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
 ]
 
 lexicon "witness" = [
 	Cat "witness" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+]
+
+lexicon "wonder" = [
+	Cat "wonder" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [About] []]
 ]
 
 lexicon "wrinkle" = [
@@ -2752,6 +3068,10 @@ lexicon "write" = [
 	Cat "write" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
 	Cat "write" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
 	Cat "write" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+]
+
+lexicon "yearn" = [
+	Cat "yearn" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [For] []]
 ]
 
 lexicon "yell" = [
