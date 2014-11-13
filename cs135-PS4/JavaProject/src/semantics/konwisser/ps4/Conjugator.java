@@ -17,7 +17,7 @@ public class Conjugator {
 	 * @author Shlomo Georg Konwisser, gekonwi@brandeis.edu
 	 * 
 	 */
-	private enum Perfect {
+	public enum Perfect {
 		TRUE(true), FALSE(false);
 
 		private final boolean value;
@@ -31,33 +31,33 @@ public class Conjugator {
 		}
 	}
 
-	private static NLGFactory nlgFactory;
-	private static Realiser realiser;
+	private final NLGFactory nlgFactory;
+	private final Realiser realiser;
 
-	public static void main(String[] args) {
-		init();
-
-		String verb = "say";
-
-		conjugate(verb, Tense.PRESENT, Perfect.FALSE, Person.THIRD);
-		conjugate(verb, Tense.PRESENT, Perfect.FALSE, Person.FIRST);
-
-		conjugate(verb, Tense.PAST, Perfect.FALSE, Person.FIRST);
-
-		conjugate(verb, Tense.PRESENT, Perfect.TRUE, Person.FIRST);
-		conjugate(verb, Tense.PAST, Perfect.TRUE, Person.FIRST);
-
-		conjugate(verb, Tense.FUTURE, Perfect.FALSE, Person.FIRST);
-		conjugate(verb, Tense.FUTURE, Perfect.TRUE, Person.FIRST);
-	}
-
-	private static void init() {
+	public Conjugator() {
 		Lexicon lexicon = Lexicon.getDefaultLexicon();
 		nlgFactory = new NLGFactory(lexicon);
 		realiser = new Realiser(lexicon);
 	}
 
-	private static void conjugate(String verb, Tense tense, Perfect perfect,
+	public static void main(String[] args) {
+		String verb = "say";
+
+		Conjugator conj = new Conjugator();
+
+		conj.conjugate(verb, Tense.PRESENT, Perfect.FALSE, Person.FIRST);
+		conj.conjugate(verb, Tense.PRESENT, Perfect.FALSE, Person.THIRD);
+
+		conj.conjugate(verb, Tense.PAST, Perfect.FALSE, Person.FIRST);
+
+		conj.conjugate(verb, Tense.PRESENT, Perfect.TRUE, Person.FIRST);
+		conj.conjugate(verb, Tense.PAST, Perfect.TRUE, Person.FIRST);
+
+		conj.conjugate(verb, Tense.FUTURE, Perfect.FALSE, Person.FIRST);
+		conj.conjugate(verb, Tense.FUTURE, Perfect.TRUE, Person.FIRST);
+	}
+
+	public String conjugate(String verb, Tense tense, Perfect perfect,
 			Person person) {
 
 		SPhraseSpec p = nlgFactory.createClause();
@@ -74,7 +74,8 @@ public class Conjugator {
 		// remove the dot at the end
 		output = output.substring(0, output.length() - 1);
 
-		System.out.println(output);
+		// System.out.println(output);
+		return output;
 	}
 
 }

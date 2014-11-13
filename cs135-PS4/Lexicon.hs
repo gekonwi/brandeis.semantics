@@ -215,15 +215,17 @@ lexicon "if"    = [Cat "if"   "COND" [] []]
 lexicon "then"  = [Cat "then" "THEN" [] []]
 
 lexicon "shouted"    = [Cat "shouted"    "VP" [Past] []]
-lexicon "shout"    = [Cat "shout"    "VP" [Pres,Sg,Fst] [],
+lexicon "shout"    = [
+  Cat "shout"    "VP" [Pres,Sg,Fst] [],
 	Cat "shout"    "VP" [Pres,Sg,Snd] [],
-	Cat "shout"     "VP" [Pres,Pl]  [],
-	Cat "shout"     "VP" [Infl]  []]
+	Cat "shout"    "VP" [Pres,Pl]  [],
+	Cat "shout"    "VP" [Infl]  []]
 lexicon "shouts"    = [Cat "shouts"    "VP" [Pres,Sg,Thrd] []]
 lexicon "will_shout"    = [Cat "will_shout"    "VP" [Fut] []]
-lexicon "have_shouted"	= [Cat "have_shouted"  "VP" [Perf,Sg,Fst] [],
-	Cat "have_shouted"     "VP" [Perf,Sg,Snd] [],
-	Cat "have_shouted"     "VP" [Perf,Pl] []]
+lexicon "have_shouted"	= [
+  Cat "have_shouted"  "VP" [Perf,Sg,Fst] [],
+	Cat "have_shouted"  "VP" [Perf,Sg,Snd] [],
+	Cat "have_shouted"  "VP" [Perf,Pl] []]
 lexicon "has_shouted"   = [Cat "has_shouted"   "VP" [Perf,Sg,Thrd] []]
 
 lexicon _ = []

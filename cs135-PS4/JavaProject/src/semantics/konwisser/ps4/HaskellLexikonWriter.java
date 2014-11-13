@@ -7,8 +7,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import semantics.konwisser.ps4.BrandeisLexikonReader.Verb;
+import semantics.konwisser.ps4.Conjugator.Perfect;
+import simplenlg.features.Person;
+import simplenlg.features.Tense;
 
 public class HaskellLexikonWriter {
 	public class NoTransformationRuleFoundException extends Exception {
@@ -18,6 +22,7 @@ public class HaskellLexikonWriter {
 	}
 
 	private final List<TransformationRule> rules = new ArrayList<>();
+	private final Conjugator conj = new Conjugator();
 
 	public HaskellLexikonWriter() {
 		rules.add(RulesFactory.DO());
@@ -49,20 +54,63 @@ public class HaskellLexikonWriter {
 			throws NoTransformationRuleFoundException {
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("lexicon \"" + verb.getVerb() + "\" = [");
+		String infinitive = verb.getVerb();
+		Set<String> codes = verb.getCodes();
+
+		sb.append("\n");
+		sb.append(getLexiconEntry(infinitive, codes, "Infl"));
+
+		sb.append(getLexiconEntry(codes, infinitive, Tense.PRESENT,
+				Perfect.FALSE, Person.THIRD, "Pres,Sg,Thrd"));
+
+		sb.append(getLexiconEntry(codes, infinitive, Tense.PAST, Perfect.FALSE,
+				Person.THIRD, "Past"));
+
+		sb.append(getLexiconEntry(codes, infinitive, Tense.PRESENT,
+				Perfect.TRUE, Person.FIRST, "Perf,Sg,Fst"));
+
+		sb.append(getLexiconEntry(codes, infinitive, Tense.PRESENT,
+				Perfect.TRUE, Person.THIRD, "Perf,Sg,Thrd"));
+
+		sb.append(getLexiconEntry(codes, infinitive, Tense.FUTURE,
+				Perfect.FALSE, Person.THIRD, "Fut"));
+
+		return sb.toString();
+	}
+
+	private String getLexiconEntry(Set<String> codes, String infinitive,
+			Tense tense, Perfect perfect, Person person, String inflection)
+			throws NoTransformationRuleFoundException {
+
+		String conjugated = conj.conjugate(infinitive, tense, perfect, person);
+		conjugated = conjugated.replaceAll(" ", "_");
+		return "\n" + getLexiconEntry(conjugated, codes, inflection);
+	}
+
+	private String getLexiconEntry(String verb, Set<String> codes,
+			String inflection) throws NoTransformationRuleFoundException {
+		StringBuilder sb = new StringBuilder();
+		sb.append("lexicon \"" + verb + "\" = [");
 
 		boolean minOneRuleFound = false;
 
-		for (String code : verb.getCodes()) {
+		for (String code : codes) {
 			for (TransformationRule rule : rules) {
 				if (!rule.applicable(code))
 					continue;
 
 				minOneRuleFound = true;
 
-				String ruleOutput = rule.apply(verb.getVerb(), code);
 				sb.append("\n\t");
-				sb.append(ruleOutput.replaceAll("\n", "\n\t"));
+
+				String ruleOutput = rule.apply(verb, code);
+				ruleOutput = ruleOutput.replaceAll("\n", "\n\t");
+
+				// TODO this is dirty
+				ruleOutput = ruleOutput.replaceAll("\\[Infl\\]", "["
+						+ inflection + "]");
+
+				sb.append(ruleOutput);
 				sb.append(",");
 			}
 		}
@@ -73,7 +121,7 @@ public class HaskellLexikonWriter {
 		// delete the last comma
 		sb.deleteCharAt(sb.length() - 1);
 
-		sb.append("\n\t]\n");
+		sb.append("\n\t]");
 
 		return sb.toString();
 	}
