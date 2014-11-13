@@ -14,9 +14,7 @@ data Feat = Masc  | Fem  | Neutr | MascOrFem
           | Nom   | AccOrDat 
           | Pers  | Refl | Wh 
           | Past  | Pres | Fut   | Perf | Infl
-          | About | At | By | For | From | In | Into 
-          | Of | On | To | With | Against | Over 
-          | Through | Onto | Upon | Like
+          | On    | With | By    | To   | From  
           deriving (Eq,Show,Ord)
 
 lexicon :: String -> [Cat]
@@ -191,23 +189,11 @@ lexicon "take" =
                            Cat "_" "PP" [From]     []], 
   Cat "take" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]] 
 
-lexicon "about" = [Cat "about" "PREP" [About] []]
-lexicon "at" = [Cat "at" "PREP" [At] []]
-lexicon "by" = [Cat "by" "PREP" [By] []]
-lexicon "for" = [Cat "for" "PREP" [For] []]
-lexicon "from" = [Cat "from" "PREP" [From] []]
-lexicon "in" = [Cat "in" "PREP" [In] []]
-lexicon "into" = [Cat "into" "PREP" [Into] []]
-lexicon "of" = [Cat "of" "PREP" [Of] []]
-lexicon "on" = [Cat "on" "PREP" [On] []]
-lexicon "to" = [Cat "to" "PREP" [To] []]
+lexicon "on"   = [Cat "on"   "PREP" [On]   []]
 lexicon "with" = [Cat "with" "PREP" [With] []]
-lexicon "against" = [Cat "against" "PREP" [Against] []]
-lexicon "over" = [Cat "over" "PREP" [Over] []]
-lexicon "through" = [Cat "through" "PREP" [Through] []]
-lexicon "onto" = [Cat "onto" "PREP" [Onto] []]
-lexicon "upon" = [Cat "upon" "PREP" [Upon] []]
-lexicon "like" = [Cat "like" "PREP" [Like] []]
+lexicon "by"   = [Cat "by"   "PREP" [By]   []]
+lexicon "to"   = [Cat "to"   "PREP" [To]   []]
+lexicon "from" = [Cat "from" "PREP" [From] []]
 
 lexicon "and"   = [Cat "and"  "CONJ" [] []]
 lexicon "."     = [Cat "."    "CONJ" [] []]
