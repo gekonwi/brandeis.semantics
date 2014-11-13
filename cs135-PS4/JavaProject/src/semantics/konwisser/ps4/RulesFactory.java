@@ -8,20 +8,20 @@ public class RulesFactory {
 		String pattern = "DO";
 		String output = "Cat \"<verb>\" \"VP\" [Infl] "
 				+ "[Cat \"_\" \"NP\" [AccOrDat] []]";
-		return getSimmpleContentRule(pattern, output);
+		return new TransformationRule(pattern, output);
 	}
 
 	public static TransformationRule IO_DO() {
 		String pattern = "IO-DO";
 		String output = "Cat \"<verb>\" \"VP\" [Infl] "
 				+ "[Cat \"_\" \"NP\" [AccOrDat] [], Cat \"_\" \"NP\" [AccOrDat] []]";
-		return getSimmpleContentRule(pattern, output);
+		return new TransformationRule(pattern, output);
 	}
 
 	public static TransformationRule DO_TONP() {
 		String pattern = "DO-TONP";
 		String output = getPrepositionRuleOutput("to");
-		return getSimmpleContentRule(pattern, output);
+		return new TransformationRule(pattern, output);
 	}
 
 	public static List<TransformationRule> P_prep_NP() {
@@ -51,7 +51,7 @@ public class RulesFactory {
 				sb.append(",\n");
 		}
 
-		return getSimmpleContentRule(pattern, sb.toString());
+		return new TransformationRule(pattern, sb.toString());
 	}
 
 	private static String getPrepositionRuleOutput(String preposition) {
@@ -76,17 +76,9 @@ public class RulesFactory {
 
 			String output = getPrepositionRuleOutput(prep);
 
-			rules.add(getSimmpleContentRule(pattern, output));
+			rules.add(new TransformationRule(pattern, output));
 		}
 
 		return rules;
-	}
-
-	private static TransformationRule getSimmpleContentRule(String pattern,
-			String outputWithPlaceholders) {
-
-		SimpleRuleContent content = new SimpleRuleContent(pattern,
-				outputWithPlaceholders);
-		return new TransformationRule(content);
 	}
 }
