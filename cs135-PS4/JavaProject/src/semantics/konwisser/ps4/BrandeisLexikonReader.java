@@ -39,6 +39,11 @@ public class BrandeisLexikonReader {
 		public Set<String> getCodes() {
 			return Collections.unmodifiableSet(codes);
 		}
+
+		@Override
+		public String toString() {
+			return verb + " " + codes;
+		}
 	}
 
 	public static List<Verb> readVerbs(Path input) throws IOException {
