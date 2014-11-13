@@ -36,6 +36,10 @@ public class HaskellLexikonWriter {
 		BufferedWriter bw = Files.newBufferedWriter(output, utf8);
 
 		for (Verb verb : verbs) {
+			// TODO handle these separately
+			if (verb.getVerb().contains("-"))
+				continue;
+
 			try {
 				String haskellRep = getHaskellRepresentation(verb);
 				bw.write(haskellRep);
