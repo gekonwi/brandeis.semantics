@@ -1,4 +1,4 @@
-package semantics.konwisser.ps4;
+package semantics.hu_konwisser.ps5.bvl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,56 +12,33 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class BrandeisLexikonReader {
+public class BVLReader {
 	public static void main(String[] args) throws IOException {
 		Path input = Paths.get("brandeis_verb_lexikon-cleaned.txt");
 
-		List<Verb> verbs = readVerbs(input);
+		List<BVLVerb> verbs = readVerbs(input);
 
 		Set<String> mergedCodes = getMergedCodes(verbs);
 
 		printCodesSorted(mergedCodes);
 	}
 
-	public static class Verb {
-		private final String verb;
-		private final Set<String> codes;
-
-		public Verb(String verb, Set<String> codes) {
-			this.verb = verb;
-			this.codes = codes;
-		}
-
-		public String getVerb() {
-			return verb;
-		}
-
-		public Set<String> getCodes() {
-			return Collections.unmodifiableSet(codes);
-		}
-
-		@Override
-		public String toString() {
-			return verb + " " + codes;
-		}
-	}
-
-	public static List<Verb> readVerbs(Path input) throws IOException {
+	public static List<BVLVerb> readVerbs(Path input) throws IOException {
 		Charset utf8 = Charset.forName("UTF-8");
 		BufferedReader br = Files.newBufferedReader(input, utf8);
 
-		List<Verb> verbs = new ArrayList<>();
+		List<BVLVerb> verbs = new ArrayList<>();
 
 		String line;
 		while ((line = br.readLine()) != null) {
-			Verb verb = parseVerb(line);
+			BVLVerb verb = parseVerb(line);
 			verbs.add(verb);
 		}
 
 		return verbs;
 	}
 
-	private static Verb parseVerb(String line) {
+	private static BVLVerb parseVerb(String line) {
 		String[] parts = line.split("\\s+");
 
 		String verbString = parts[0].toLowerCase();
@@ -70,14 +47,14 @@ public class BrandeisLexikonReader {
 		for (int i = 1; i < parts.length; i++)
 			codes.add(parts[i]);
 
-		Verb verb = new Verb(verbString, codes);
+		BVLVerb verb = new BVLVerb(verbString, codes);
 		return verb;
 	}
 
-	private static Set<String> getMergedCodes(List<Verb> verbs) {
+	private static Set<String> getMergedCodes(List<BVLVerb> verbs) {
 		Set<String> mergedCodes = new HashSet<>();
 
-		for (Verb verb : verbs) {
+		for (BVLVerb verb : verbs) {
 			for (String code : verb.getCodes()) {
 				code = code.replaceAll("P_[a-z]+", "P_<preposition>");
 				mergedCodes.add(code);

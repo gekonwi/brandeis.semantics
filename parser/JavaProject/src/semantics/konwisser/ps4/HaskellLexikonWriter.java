@@ -9,8 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import semantics.konwisser.ps4.BVLRules.NoTransformationRuleFoundException;
-import semantics.konwisser.ps4.BrandeisLexikonReader.Verb;
+import semantics.hu_konwisser.ps5.bvl.BVLRules;
+import semantics.hu_konwisser.ps5.bvl.BVLVerb;
+import semantics.hu_konwisser.ps5.bvl.BVLRules.NoTransformationRuleFoundException;
 import semantics.konwisser.ps4.Conjugator.Perfect;
 import simplenlg.features.Person;
 import simplenlg.features.Tense;
@@ -19,11 +20,11 @@ public class HaskellLexikonWriter {
 
 	private final Conjugator conj = new Conjugator();
 
-	public void write(Path output, List<Verb> verbs) throws IOException {
+	public void write(Path output, List<BVLVerb> verbs) throws IOException {
 		Charset utf8 = Charset.forName("UTF-8");
 		BufferedWriter bw = Files.newBufferedWriter(output, utf8);
 
-		for (Verb verb : verbs) {
+		for (BVLVerb verb : verbs) {
 			// TODO handle these separately
 			if (verb.getVerb().contains("-"))
 				continue;
@@ -42,7 +43,7 @@ public class HaskellLexikonWriter {
 		bw.close();
 	}
 
-	private String getHaskellRepresentation(Verb verb)
+	private String getHaskellRepresentation(BVLVerb verb)
 			throws NoTransformationRuleFoundException {
 
 		StringBuilder sb = new StringBuilder();

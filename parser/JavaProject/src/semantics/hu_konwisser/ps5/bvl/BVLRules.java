@@ -1,4 +1,4 @@
-package semantics.konwisser.ps4;
+package semantics.hu_konwisser.ps5.bvl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import semantics.konwisser.ps4.TransformationRule;
 
 /**
  * Manages transformation rules for the Brandeis Verb Lexikon
