@@ -1,30 +1,81 @@
 package semantics.konwisser.ps4;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-public class RulesFactory {
-	public static TransformationRule DO() {
+/**
+ * Manages transformation rules for the Brandeis Verb Lexikon
+ * 
+ * @author Shlomo Georg Konwisser, gekonwi@brandeis.edu
+ * 
+ */
+public class BVLRules {
+
+	public static class NoTransformationRuleFoundException extends Exception {
+
+		private static final long serialVersionUID = 1L;
+
+	}
+
+	private static List<TransformationRule> rules;
+
+	static {
+		rules = new ArrayList<>();
+
+		rules.add(DO());
+		rules.add(IO_DO());
+		rules.add(DO_TONP());
+		rules.addAll(P_prep_NP());
+	}
+
+	public static Map<String, Set<TransformationRule>> getApplicableRules(
+			Set<String> codes) throws NoTransformationRuleFoundException {
+
+		Map<String, Set<TransformationRule>> result = new HashMap<>();
+
+		for (String code : codes) {
+			Set<TransformationRule> applicables = new HashSet<>();
+
+			for (TransformationRule rule : rules) {
+				if (rule.applicable(code))
+					applicables.add(rule);
+			}
+
+			if (!applicables.isEmpty())
+				result.put(code, applicables);
+		}
+
+		if (result.isEmpty())
+			throw new NoTransformationRuleFoundException();
+
+		return result;
+	}
+
+	private static TransformationRule DO() {
 		String pattern = "DO";
 		String output = "Cat \"<verb>\" \"VP\" [Infl] "
 				+ "[Cat \"_\" \"NP\" [AccOrDat] []]";
 		return new TransformationRule(pattern, output);
 	}
 
-	public static TransformationRule IO_DO() {
+	private static TransformationRule IO_DO() {
 		String pattern = "IO-DO";
 		String output = "Cat \"<verb>\" \"VP\" [Infl] "
 				+ "[Cat \"_\" \"NP\" [AccOrDat] [], Cat \"_\" \"NP\" [AccOrDat] []]";
 		return new TransformationRule(pattern, output);
 	}
 
-	public static TransformationRule DO_TONP() {
+	private static TransformationRule DO_TONP() {
 		String pattern = "DO-TONP";
 		String output = getPrepositionRuleOutput("to");
 		return new TransformationRule(pattern, output);
 	}
 
-	public static List<TransformationRule> P_prep_NP() {
+	private static List<TransformationRule> P_prep_NP() {
 		List<TransformationRule> rules = getRegularPrepositionRules();
 
 		String[] dirPrepositions = { "to", "on", "onto", "in", "into" };

@@ -5,31 +5,19 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import semantics.konwisser.ps4.BVLRules.NoTransformationRuleFoundException;
 import semantics.konwisser.ps4.BrandeisLexikonReader.Verb;
 import semantics.konwisser.ps4.Conjugator.Perfect;
 import simplenlg.features.Person;
 import simplenlg.features.Tense;
 
 public class HaskellLexikonWriter {
-	public class NoTransformationRuleFoundException extends Exception {
 
-		private static final long serialVersionUID = 1L;
-
-	}
-
-	private final List<TransformationRule> rules = new ArrayList<>();
 	private final Conjugator conj = new Conjugator();
-
-	public HaskellLexikonWriter() {
-		rules.add(RulesFactory.DO());
-		rules.add(RulesFactory.IO_DO());
-		rules.add(RulesFactory.DO_TONP());
-		rules.addAll(RulesFactory.P_prep_NP());
-	}
 
 	public void write(Path output, List<Verb> verbs) throws IOException {
 		Charset utf8 = Charset.forName("UTF-8");
@@ -98,15 +86,11 @@ public class HaskellLexikonWriter {
 		StringBuilder sb = new StringBuilder();
 		sb.append("lexicon \"" + verb + "\" = [");
 
-		boolean minOneRuleFound = false;
+		Map<String, Set<TransformationRule>> applicables;
+		applicables = BVLRules.getApplicableRules(codes);
 
-		for (String code : codes) {
-			for (TransformationRule rule : rules) {
-				if (!rule.applicable(code))
-					continue;
-
-				minOneRuleFound = true;
-
+		for (String code : applicables.keySet()) {
+			for (TransformationRule rule : applicables.get(code)) {
 				sb.append("\n\t");
 
 				String ruleOutput = rule.apply(verb, code);
@@ -118,9 +102,6 @@ public class HaskellLexikonWriter {
 				sb.append(",");
 			}
 		}
-
-		if (!minOneRuleFound)
-			throw new NoTransformationRuleFoundException();
 
 		// delete the last comma
 		sb.deleteCharAt(sb.length() - 1);
