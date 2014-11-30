@@ -15,23 +15,24 @@ import semantics.hu_konwisser.ps5.bvl.BVLVerb;
 import semantics.konwisser.ps4.HaskellLexiconWriter;
 
 /**
- * This class generates the Haskell VerbRoot module containing the root function
- * for PS5.
+ * This class generates the Haskell Conjugations module containing the
+ * <code>conjugations :: String -> [String]</code> function for PS5.
  * 
  * @author Shlomo Georg Konwisser, gekonwi@brandeis.edu
  * 
  */
-public class RootFunctionWriter {
+public class ConjugationsFunctionWriter {
 
-	private static final Path ROOT_HEAD_PATH = Paths.get("static",
-			"root_head.hs");
+	private static final Path CONJUGATIONS_HEAD_PATH = Paths.get("static",
+			"conjugations_head.hs");
 
 	private final Conjugator conj = new Conjugator();
 
 	public void write(Path ouput, List<BVLVerb> verbs) throws IOException {
-		System.out.println("RootFunctionWriter: Strarting writing " + ouput);
+		System.out.println("ConjugationsFunctionWriter: Strarting writing "
+				+ ouput);
 
-		Files.copy(ROOT_HEAD_PATH, ouput, REPLACE_EXISTING);
+		Files.copy(CONJUGATIONS_HEAD_PATH, ouput, REPLACE_EXISTING);
 
 		BufferedWriter bw = Files.newBufferedWriter(ouput,
 				Charset.forName("UTF-8"), APPEND);
@@ -40,24 +41,21 @@ public class RootFunctionWriter {
 			if (!HaskellLexiconWriter.isRelevant(verb))
 				continue;
 
-			bw.write("\n");
-			bw.write(getRootFunctionEntries(verb.getVerb()));
+			bw.write(getFunctionEntries(verb.getVerb()));
 		}
 
 		bw.flush();
 		bw.close();
 
-		System.out.println("RootFunctionWriter: done");
+		System.out.println("ConjugationsFunctionWriter: done");
 	}
 
-	private String getRootFunctionEntries(String verb) {
+	private String getFunctionEntries(String verb) {
 		List<String> conjugations = conj.getConjugations(verb);
 
 		StringBuilder sb = new StringBuilder();
-		for (String c : conjugations) {
-			c = c.replaceAll(" ", "_");
-			sb.append(String.format("\nroot \"%s\" = \"%s\"", c, verb));
-		}
+		sb.append(String.format("\nconjugations \"%s\" = \"%s\"", verb,
+				conjugations));
 
 		return sb.toString();
 	}

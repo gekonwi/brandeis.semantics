@@ -95,7 +95,8 @@ public class Conjugator {
 	 * @param verb
 	 *            verb root (infinitive without the "to")
 	 * @return simple past, present perfect non-third person, present perfect
-	 *         third person, present, future
+	 *         third person, present non-third person, present third person,
+	 *         future
 	 */
 	public List<String> getConjugations(String verb) {
 		List<String> conjugations = new ArrayList<>();

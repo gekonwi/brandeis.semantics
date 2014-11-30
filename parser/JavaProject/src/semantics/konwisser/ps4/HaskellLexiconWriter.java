@@ -16,7 +16,7 @@ import semantics.hu_konwisser.ps5.bvl.BVLVerb;
 import simplenlg.features.Person;
 import simplenlg.features.Tense;
 
-public class HaskellLexikonWriter {
+public class HaskellLexiconWriter {
 
 	private final Conjugator conj = new Conjugator();
 
