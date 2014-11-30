@@ -51,12 +51,19 @@ public class ConjugationsFunctionWriter {
 	}
 
 	private String getFunctionEntries(String verb) {
-		List<String> conjugations = conj.getConjugations(verb);
-
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("\nconjugations \"%s\" = \"%s\"", verb,
-				conjugations));
+		sb.append(String.format("\nconjugations \"%s\" = [", verb));
 
+		List<String> conjugations = conj.getConjugations(verb);
+		for (String c : conjugations) {
+			c = c.replaceAll(" ", "_");
+			sb.append(String.format("\"%s\", ", c));
+		}
+
+		// delete the last ", "
+		sb.delete(sb.length() - 2, sb.length());
+
+		sb.append("]");
 		return sb.toString();
 	}
 }
