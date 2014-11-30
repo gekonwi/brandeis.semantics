@@ -11,9 +11,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import semantics.hu_konwisser.ps5.bvl.BVLRules;
-import semantics.hu_konwisser.ps5.bvl.BVLRules.NoTransformationRuleFoundException;
 import semantics.hu_konwisser.ps5.bvl.BVLVerb;
+import semantics.konwisser.ps4.HaskellLexikonWriter;
 
 /**
  * This class generates the Haskell Prop module containing proposition helper
@@ -38,7 +37,7 @@ public class RootFunctionWriter {
 				Charset.forName("UTF-8"), APPEND);
 
 		for (BVLVerb verb : verbs) {
-			if (!isRelevant(verb))
+			if (!HaskellLexikonWriter.isRelevant(verb))
 				continue;
 
 			bw.write("\n");
@@ -49,24 +48,6 @@ public class RootFunctionWriter {
 		bw.close();
 
 		System.out.println("RootFunctionWriter: done");
-	}
-
-	private boolean isRelevant(BVLVerb verb) {
-		// we ignore those
-		if (verb.getVerb().contains("-"))
-			return false;
-
-		try {
-			BVLRules.getApplicableRules(verb.getCodes());
-		} catch (NoTransformationRuleFoundException e) {
-			/*
-			 * this means there are no entries for it in Lexicon.hs, so we don't
-			 * have to care about it here as well
-			 */
-			return false;
-		}
-
-		return true;
 	}
 
 	private String getRootFunctionEntries(String verb) {

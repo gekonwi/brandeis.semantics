@@ -13,7 +13,6 @@ import semantics.hu_konwisser.ps5.Conjugator;
 import semantics.hu_konwisser.ps5.Conjugator.Perfect;
 import semantics.hu_konwisser.ps5.bvl.BVLRules;
 import semantics.hu_konwisser.ps5.bvl.BVLVerb;
-import semantics.hu_konwisser.ps5.bvl.BVLRules.NoTransformationRuleFoundException;
 import simplenlg.features.Person;
 import simplenlg.features.Tense;
 
@@ -21,31 +20,37 @@ public class HaskellLexikonWriter {
 
 	private final Conjugator conj = new Conjugator();
 
+	public static boolean isRelevant(BVLVerb verb) {
+		// we ignore those
+		if (verb.getVerb().contains("-"))
+			return false;
+
+		if (BVLRules.getApplicableRules(verb.getCodes()).isEmpty()) {
+			// System.out.println("No transformation rule found for: " + verb);
+			return false;
+		}
+
+		return true;
+	}
+
 	public void write(Path output, List<BVLVerb> verbs) throws IOException {
 		Charset utf8 = Charset.forName("UTF-8");
 		BufferedWriter bw = Files.newBufferedWriter(output, utf8);
 
 		for (BVLVerb verb : verbs) {
-			// TODO handle these separately
-			if (verb.getVerb().contains("-"))
+			if (!isRelevant(verb))
 				continue;
 
-			try {
-				String haskellRep = getHaskellRepresentation(verb);
-				bw.write(haskellRep);
-				bw.write("\n");
-			} catch (NoTransformationRuleFoundException e) {
-				System.out.println("No transformation rule found for: " + verb);
-				continue;
-			}
+			String haskellRep = getHaskellRepresentation(verb);
+			bw.write(haskellRep);
+			bw.write("\n");
 		}
 
 		bw.flush();
 		bw.close();
 	}
 
-	private String getHaskellRepresentation(BVLVerb verb)
-			throws NoTransformationRuleFoundException {
+	private String getHaskellRepresentation(BVLVerb verb) {
 
 		StringBuilder sb = new StringBuilder();
 		String infinitive = verb.getVerb();
@@ -75,8 +80,7 @@ public class HaskellLexikonWriter {
 	}
 
 	private String getLexiconEntry(Set<String> codes, String infinitive,
-			Tense tense, Perfect perfect, Person person, String... inflections)
-			throws NoTransformationRuleFoundException {
+			Tense tense, Perfect perfect, Person person, String... inflections) {
 
 		String conjugated = conj.conjugate(infinitive, tense, perfect, person);
 		conjugated = conjugated.replaceAll(" ", "_");
@@ -84,7 +88,7 @@ public class HaskellLexikonWriter {
 	}
 
 	private String getLexiconEntry(String verb, Set<String> codes,
-			String... inflections) throws NoTransformationRuleFoundException {
+			String... inflections) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("lexicon \"" + verb + "\" = [");
 
@@ -106,7 +110,8 @@ public class HaskellLexikonWriter {
 		}
 
 		// delete the last comma
-		sb.deleteCharAt(sb.length() - 1);
+		if (sb.length() > 0)
+			sb.deleteCharAt(sb.length() - 1);
 
 		sb.append("\n\t]");
 

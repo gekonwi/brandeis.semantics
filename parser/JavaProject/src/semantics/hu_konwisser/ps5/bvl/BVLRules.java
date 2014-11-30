@@ -17,12 +17,6 @@ import semantics.konwisser.ps4.TransformationRule;
  */
 public class BVLRules {
 
-	public static class NoTransformationRuleFoundException extends Exception {
-
-		private static final long serialVersionUID = 1L;
-
-	}
-
 	private static List<TransformationRule> rules;
 
 	static {
@@ -35,7 +29,7 @@ public class BVLRules {
 	}
 
 	public static Map<String, Set<TransformationRule>> getApplicableRules(
-			Set<String> codes) throws NoTransformationRuleFoundException {
+			Set<String> codes) {
 
 		Map<String, Set<TransformationRule>> result = new HashMap<>();
 
@@ -50,9 +44,6 @@ public class BVLRules {
 			if (!applicables.isEmpty())
 				result.put(code, applicables);
 		}
-
-		if (result.isEmpty())
-			throw new NoTransformationRuleFoundException();
 
 		return result;
 	}
