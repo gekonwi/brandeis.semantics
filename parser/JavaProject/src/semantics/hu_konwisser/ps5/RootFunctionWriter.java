@@ -27,17 +27,17 @@ import simplenlg.features.Tense;
  * @author Shlomo Georg Konwisser, gekonwi@brandeis.edu
  * 
  */
-public class PropWriter {
+public class RootFunctionWriter {
 
-	private static final Path PROP_HEAD_PATH = Paths.get("static",
-			"prop_head.hs");
+	private static final Path ROOT_HEAD_PATH = Paths.get("static",
+			"root_head.hs");
 
 	private final Conjugator conj = new Conjugator();
 
 	public void write(Path ouput, List<BVLVerb> verbs) throws IOException {
-		System.out.println("PropWriter: Strarting writing Props module");
+		System.out.println("RootFunctionWriter: Strarting writing " + ouput);
 
-		Files.copy(PROP_HEAD_PATH, ouput, REPLACE_EXISTING);
+		Files.copy(ROOT_HEAD_PATH, ouput, REPLACE_EXISTING);
 
 		BufferedWriter bw = Files.newBufferedWriter(ouput,
 				Charset.forName("UTF-8"), APPEND);
@@ -53,7 +53,7 @@ public class PropWriter {
 		bw.flush();
 		bw.close();
 
-		System.out.println("PropWriter: done");
+		System.out.println("RootFunctionWriter: done");
 	}
 
 	private boolean isRelevant(BVLVerb verb) {

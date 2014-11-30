@@ -8,14 +8,14 @@ import java.util.List;
 import semantics.hu_konwisser.ps5.bvl.BVLReader;
 import semantics.hu_konwisser.ps5.bvl.BVLVerb;
 
-public class PropMain {
+public class RootFunctionMain {
 	public static void main(String[] args) throws IOException {
 		Path input = Paths.get("static", "brandeis_verb_lexikon-cleaned.txt");
-		Path ouput = Paths.get("generated", "Prop.hs");
+		Path ouput = Paths.get("generated", "VerbRoot.hs");
 
 		List<BVLVerb> verbs = BVLReader.readVerbs(input);
 
-		PropWriter writer = new PropWriter();
+		RootFunctionWriter writer = new RootFunctionWriter();
 		writer.write(ouput, verbs);
 	}
 }
