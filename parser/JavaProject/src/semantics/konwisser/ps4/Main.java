@@ -9,8 +9,8 @@ import semantics.konwisser.ps4.BrandeisLexikonReader.Verb;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		Path input = Paths.get("brandeis_verb_lexikon-cleaned.txt");
-		Path ouput = Paths.get("haskell_generated.hs");
+		Path input = Paths.get("static", "brandeis_verb_lexikon-cleaned.txt");
+		Path ouput = Paths.get("generated", "haskell_generated.hs");
 
 		List<Verb> verbs = BrandeisLexikonReader.readVerbs(input);
 
