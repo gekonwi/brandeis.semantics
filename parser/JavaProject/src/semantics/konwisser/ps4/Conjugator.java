@@ -57,6 +57,15 @@ public class Conjugator {
 		conj.conjugate(verb, Tense.FUTURE, Perfect.TRUE, Person.FIRST);
 	}
 
+	/**
+	 * Assumes plurality = Singular.
+	 * 
+	 * @param verb
+	 * @param tense
+	 * @param perfect
+	 * @param person
+	 * @return
+	 */
 	public String conjugate(String verb, Tense tense, Perfect perfect,
 			Person person) {
 
