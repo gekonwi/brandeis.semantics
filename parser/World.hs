@@ -2,6 +2,8 @@ module World where
 
 import HRAS
 
+import Prop
+
 type Prop = String
 
 data ModalOperator = Necessarily | Possibly deriving (Show, Eq)

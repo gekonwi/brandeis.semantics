@@ -2370,7 +2370,7 @@ lexicon "will_await" = [
   Cat "will_await" "VP" [Fut] [Cat "_" "NP" [AccOrDat] []]
   ]
 
-lexicon "babble" = [
+{-lexicon "babble" = [
   Cat "babble" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] []],
   Cat "babble" "VP" [Pres,Sg,Snd] [Cat "_" "NP" [AccOrDat] []],
   Cat "babble" "VP" [Pres,Pl] [Cat "_" "NP" [AccOrDat] []],
@@ -9994,6 +9994,6 @@ lexicon "has_inhabited" = [
   ]
 lexicon "will_inhabit" = [
   Cat "will_inhabit" "VP" [Fut] [Cat "_" "NP" [AccOrDat] []]
-  ]
+  ]-}
 
 lexicon _ = []
