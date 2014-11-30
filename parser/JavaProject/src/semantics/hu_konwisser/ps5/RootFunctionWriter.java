@@ -9,16 +9,11 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 import semantics.hu_konwisser.ps5.bvl.BVLRules;
 import semantics.hu_konwisser.ps5.bvl.BVLRules.NoTransformationRuleFoundException;
 import semantics.hu_konwisser.ps5.bvl.BVLVerb;
-import semantics.konwisser.ps4.Conjugator;
-import semantics.konwisser.ps4.Conjugator.Perfect;
-import simplenlg.features.Person;
-import simplenlg.features.Tense;
 
 /**
  * This class generates the Haskell Prop module containing proposition helper
@@ -75,7 +70,7 @@ public class RootFunctionWriter {
 	}
 
 	private String getRootFunctionEntries(String verb) {
-		List<String> conjugations = getConjugations(verb);
+		List<String> conjugations = conj.getConjugations(verb);
 
 		StringBuilder sb = new StringBuilder();
 		for (String c : conjugations) {
@@ -85,28 +80,4 @@ public class RootFunctionWriter {
 
 		return sb.toString();
 	}
-
-	private List<String> getConjugations(String verb) {
-		List<String> conjugations = new ArrayList<>();
-
-		conjugations.add(conj.conjugate(verb, Tense.PAST, Perfect.FALSE,
-				Person.FIRST));
-
-		conjugations.add(conj.conjugate(verb, Tense.PRESENT, Perfect.TRUE,
-				Person.FIRST));
-
-		conjugations.add(conj.conjugate(verb, Tense.PRESENT, Perfect.TRUE,
-				Person.THIRD));
-
-		conjugations.add(verb);
-
-		conjugations.add(conj.conjugate(verb, Tense.PRESENT, Perfect.FALSE,
-				Person.THIRD));
-
-		conjugations.add(conj.conjugate(verb, Tense.FUTURE, Perfect.FALSE,
-				Person.FIRST));
-
-		return conjugations;
-	}
-
 }

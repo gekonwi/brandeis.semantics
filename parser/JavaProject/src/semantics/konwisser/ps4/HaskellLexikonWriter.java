@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import semantics.hu_konwisser.ps5.Conjugator;
+import semantics.hu_konwisser.ps5.Conjugator.Perfect;
 import semantics.hu_konwisser.ps5.bvl.BVLRules;
 import semantics.hu_konwisser.ps5.bvl.BVLVerb;
 import semantics.hu_konwisser.ps5.bvl.BVLRules.NoTransformationRuleFoundException;
-import semantics.konwisser.ps4.Conjugator.Perfect;
 import simplenlg.features.Person;
 import simplenlg.features.Tense;
 

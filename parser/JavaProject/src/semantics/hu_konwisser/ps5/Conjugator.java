@@ -1,4 +1,7 @@
-package semantics.konwisser.ps4;
+package semantics.hu_konwisser.ps5;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import simplenlg.features.Feature;
 import simplenlg.features.NumberAgreement;
@@ -87,4 +90,33 @@ public class Conjugator {
 		return output;
 	}
 
+	/**
+	 * 
+	 * @param verb
+	 *            verb root (infinitive without the "to")
+	 * @return simple past, present perfect non-third person, present perfect
+	 *         third person, present, future
+	 */
+	public List<String> getConjugations(String verb) {
+		List<String> conjugations = new ArrayList<>();
+
+		conjugations.add(conjugate(verb, Tense.PAST, Perfect.FALSE,
+				Person.FIRST));
+
+		conjugations.add(conjugate(verb, Tense.PRESENT, Perfect.TRUE,
+				Person.FIRST));
+
+		conjugations.add(conjugate(verb, Tense.PRESENT, Perfect.TRUE,
+				Person.THIRD));
+
+		conjugations.add(verb);
+
+		conjugations.add(conjugate(verb, Tense.PRESENT, Perfect.FALSE,
+				Person.THIRD));
+
+		conjugations.add(conjugate(verb, Tense.FUTURE, Perfect.FALSE,
+				Person.FIRST));
+
+		return conjugations;
+	}
 }
