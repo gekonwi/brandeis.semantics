@@ -24,6 +24,8 @@ public class BVLReader {
 	}
 
 	public static List<BVLVerb> readVerbs(Path input) throws IOException {
+		System.out.println("BVLReader: starting reading verbs");
+
 		Charset utf8 = Charset.forName("UTF-8");
 		BufferedReader br = Files.newBufferedReader(input, utf8);
 
@@ -34,6 +36,8 @@ public class BVLReader {
 			BVLVerb verb = parseVerb(line);
 			verbs.add(verb);
 		}
+
+		System.out.println("BVLReader: done");
 
 		return verbs;
 	}
