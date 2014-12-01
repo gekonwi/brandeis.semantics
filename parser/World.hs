@@ -4,6 +4,8 @@ import HRAS
 import Conjugations
 import Lexicon
 import UnitTest
+import P
+import VerbRoot
 
 type Prop = String
 
@@ -32,48 +34,54 @@ model = [w1,w2,w3,w4,w5]
 --		target tense, one of [Past, Perf, Pres, Fut]
 -- returns: 
 --		conjugated form of the given verb with target person, target number, and target tense
-conjugateVerb :: String -> Feat -> Feat -> Feat -> String
+conjugVerb :: String -> Feat -> Feat -> Feat -> String
 
-conjugateVerb verb _ _ Past = (conjugations verb)!!0
-conjugateVerb verb Thrd Sg Perf = (conjugations verb)!!2
-conjugateVerb verb _ _ Perf = (conjugations verb)!!1
-conjugateVerb verb Thrd Sg Pres = (conjugations verb)!!4
-conjugateVerb verb _ _ Pres = (conjugations verb)!!3
-conjugateVerb verb _ _ Fut = (conjugations verb)!!5
+conjugVerb verb _ _ Past = (conjugations verb)!!0
+conjugVerb verb Thrd Sg Perf = (conjugations verb)!!2
+conjugVerb verb _ _ Perf = (conjugations verb)!!1
+conjugVerb verb Thrd Sg Pres = (conjugations verb)!!4
+conjugVerb verb _ _ Pres = (conjugations verb)!!3
+conjugVerb verb _ _ Fut = (conjugations verb)!!5
 
-conjugateVerbTests = [
-	("conjugateVerb 'eat' Fst Sg Past",	conjugateVerb "eat" Fst Sg Past,	"ate"),
-	("conjugateVerb 'eat' Fst Sg Perf",	conjugateVerb "eat" Fst Sg Perf,	"have_eaten"),
-	("conjugateVerb 'eat' Fst Sg Pres",	conjugateVerb "eat" Fst Sg Pres,	"eat"),
-	("conjugateVerb 'eat' Fst Sg Fut", 	conjugateVerb "eat" Fst Sg Fut,		"will_eat"),
+conjugVerbTests = [
+	("conjugVerb 'eat' Fst Sg Past",	conjugVerb "eat" Fst Sg Past,	"ate"),
+	("conjugVerb 'eat' Fst Sg Perf",	conjugVerb "eat" Fst Sg Perf,	"have_eaten"),
+	("conjugVerb 'eat' Fst Sg Pres",	conjugVerb "eat" Fst Sg Pres,	"eat"),
+	("conjugVerb 'eat' Fst Sg Fut", 	conjugVerb "eat" Fst Sg Fut,		"will_eat"),
 
-	("conjugateVerb 'eat' Fst Pl Past",	conjugateVerb "eat" Fst Pl Past,	"ate"),
-	("conjugateVerb 'eat' Fst Pl Perf",	conjugateVerb "eat" Fst Pl Perf,	"have_eaten"),
-	("conjugateVerb 'eat' Fst Pl Pres",	conjugateVerb "eat" Fst Pl Pres,	"eat"),
-	("conjugateVerb 'eat' Fst Pl Fut",	conjugateVerb "eat" Fst Pl Fut,		"will_eat"),
+	("conjugVerb 'eat' Fst Pl Past",	conjugVerb "eat" Fst Pl Past,	"ate"),
+	("conjugVerb 'eat' Fst Pl Perf",	conjugVerb "eat" Fst Pl Perf,	"have_eaten"),
+	("conjugVerb 'eat' Fst Pl Pres",	conjugVerb "eat" Fst Pl Pres,	"eat"),
+	("conjugVerb 'eat' Fst Pl Fut",	conjugVerb "eat" Fst Pl Fut,		"will_eat"),
 
 
-	("conjugateVerb 'eat' Snd Sg Past",	conjugateVerb "eat" Snd Sg Past,	"ate"),
-	("conjugateVerb 'eat' Snd Sg Perf",	conjugateVerb "eat" Snd Sg Perf,	"have_eaten"),
-	("conjugateVerb 'eat' Snd Sg Pres",	conjugateVerb "eat" Snd Sg Pres,	"eat"),
-	("conjugateVerb 'eat' Snd Sg Fut",	conjugateVerb "eat" Snd Sg Fut,		"will_eat"),
+	("conjugVerb 'eat' Snd Sg Past",	conjugVerb "eat" Snd Sg Past,	"ate"),
+	("conjugVerb 'eat' Snd Sg Perf",	conjugVerb "eat" Snd Sg Perf,	"have_eaten"),
+	("conjugVerb 'eat' Snd Sg Pres",	conjugVerb "eat" Snd Sg Pres,	"eat"),
+	("conjugVerb 'eat' Snd Sg Fut",	conjugVerb "eat" Snd Sg Fut,		"will_eat"),
 	
-	("conjugateVerb 'eat' Snd Pl Past",	conjugateVerb "eat" Snd Pl Past,	"ate"),
-	("conjugateVerb 'eat' Snd Pl Perf",	conjugateVerb "eat" Snd Pl Perf,	"have_eaten"),
-	("conjugateVerb 'eat' Snd Pl Pres",	conjugateVerb "eat" Snd Pl Pres,	"eat"),
-	("conjugateVerb 'eat' Snd Pl Fut",	conjugateVerb "eat" Snd Pl Fut,		"will_eat"),
+	("conjugVerb 'eat' Snd Pl Past",	conjugVerb "eat" Snd Pl Past,	"ate"),
+	("conjugVerb 'eat' Snd Pl Perf",	conjugVerb "eat" Snd Pl Perf,	"have_eaten"),
+	("conjugVerb 'eat' Snd Pl Pres",	conjugVerb "eat" Snd Pl Pres,	"eat"),
+	("conjugVerb 'eat' Snd Pl Fut",	conjugVerb "eat" Snd Pl Fut,		"will_eat"),
 	
 
-	("conjugateVerb 'eat' Thrd Sg Past",conjugateVerb "eat" Thrd Sg Past,	"ate"),
-	("conjugateVerb 'eat' Thrd Sg Perf",conjugateVerb "eat" Thrd Sg Perf,	"has_eaten"),
-	("conjugateVerb 'eat' Thrd Sg Pres",conjugateVerb "eat" Thrd Sg Pres,	"eats"),
-	("conjugateVerb 'eat' Thrd Sg Fut",	conjugateVerb "eat" Thrd Sg Fut,	"will_eat"),
+	("conjugVerb 'eat' Thrd Sg Past",conjugVerb "eat" Thrd Sg Past,	"ate"),
+	("conjugVerb 'eat' Thrd Sg Perf",conjugVerb "eat" Thrd Sg Perf,	"has_eaten"),
+	("conjugVerb 'eat' Thrd Sg Pres",conjugVerb "eat" Thrd Sg Pres,	"eats"),
+	("conjugVerb 'eat' Thrd Sg Fut",	conjugVerb "eat" Thrd Sg Fut,	"will_eat"),
 	
-	("conjugateVerb 'eat' Thrd Pl Past",conjugateVerb "eat" Thrd Pl Past,	"ate"),
-	("conjugateVerb 'eat' Thrd Pl Perf",conjugateVerb "eat" Thrd Pl Perf,	"have_eaten"),
-	("conjugateVerb 'eat' Thrd Pl Pres",conjugateVerb "eat" Thrd Pl Pres,	"eat"),
-	("conjugateVerb 'eat' Thrd Pl Fut",	conjugateVerb "eat" Thrd Pl Fut,	"will_eat")
+	("conjugVerb 'eat' Thrd Pl Past",conjugVerb "eat" Thrd Pl Past,	"ate"),
+	("conjugVerb 'eat' Thrd Pl Perf",conjugVerb "eat" Thrd Pl Perf,	"have_eaten"),
+	("conjugVerb 'eat' Thrd Pl Pres",conjugVerb "eat" Thrd Pl Pres,	"eat"),
+	("conjugVerb 'eat' Thrd Pl Fut",	conjugVerb "eat" Thrd Pl Fut,	"will_eat")
 	]
+
+
+
+isLeaf :: ParseTree Cat Cat -> Bool
+isLeaf (Leaf c) = True
+isLeaf _ = False
 
 
 -- parameters:
@@ -81,13 +89,33 @@ conjugateVerbTests = [
 --		target tense, one of [Past, Perf, Pres, Fut]
 -- returns
 --		the given proposition with the verb conjugated to the target tense
---conjugateProp :: Prop -> Feat -> Prop
+conjugProp :: Prop -> Feat -> [String]
+
+conjugProp prop targetTense = map conjugate $ map t2c $ filter isLeaf $ subtrees $ parseTree
+	
+	where
+		parseTree = head $ prs prop
+
+		conjugate x
+			| catLabel x == "VP"	= conjugPhonVP x
+			| otherwise				= phon x
+		
+			where
+				conjugPhonVP x = conjugVerb verbRoot npPerson npNumber targetTense
+
+					where
+						npFs = fs $ t2c $ subtree parseTree [0]
+						verbRoot = root $ phon x
+						npPerson = head $ person $ npFs
+						npNumber = head $ number $ npFs
+
+
 
 
 
 
 runWorldTests = runUnitTests [
-	runTests conjugateVerbTests
+	runTests conjugVerbTests
 	]
 
 -- isValid :: TProp -> Bool
