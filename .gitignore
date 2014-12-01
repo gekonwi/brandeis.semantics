@@ -1,1 +1,3 @@
-cs135-PS4/JavaProject/haskell_generated.hs
+*.class
+.DS_Store
+parser/JavaProject/generated
