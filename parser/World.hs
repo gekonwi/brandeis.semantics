@@ -89,12 +89,15 @@ isLeaf _ = False
 --		target tense, one of [Past, Perf, Pres, Fut]
 -- returns
 --		the given proposition with the verb conjugated to the target tense
-conjugProp :: Prop -> Feat -> [String]
+conjugProp :: Prop -> Feat -> String
 
-conjugProp prop targetTense = map conjugate $ map t2c $ filter isLeaf $ subtrees $ parseTree
+conjugProp prop targetTense = wordsToString wordList
 	
 	where
 		parseTree = head $ prs prop
+		wordList = map conjugate $ map t2c $ filter isLeaf $ subtrees $ parseTree
+
+		wordsToString (x:xs) = foldl (\ acc x -> acc ++ " " ++ x) x xs
 
 		conjugate x
 			| catLabel x == "VP"	= conjugPhonVP x
