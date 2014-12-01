@@ -11,6 +11,11 @@ module Conjugations where
 -- sample output: ["ate", "have_eaten", "has_eaten", "eat", "eats", "will_eat"]
 conjugations :: String -> [String]
 
+-- these two verbs are used in unit tests but not given in the Brandeis Verb Lexicon, thus static here
+conjugations "smile" = ["smiled", "have_smiled", "has_smiled", "smile", "smiles", "will_smile"]
+conjugations "shout" = ["shouted", "have_shouted", "has_shouted", "shout", "shouts", "will_shout"]
+
+
 conjugations "abandon" = ["abandoned", "have_abandoned", "has_abandoned", "abandon", "abandons", "will_abandon"]
 --conjugations "abase" = ["abased", "have_abased", "has_abased", "abase", "abases", "will_abase"]
 --conjugations "abbreviate" = ["abbreviated", "have_abbreviated", "has_abbreviated", "abbreviate", "abbreviates", "will_abbreviate"]
@@ -339,7 +344,7 @@ conjugations "eat" = ["ate", "have_eaten", "has_eaten", "eat", "eats", "will_eat
 --conjugations "gamble" = ["gambled", "have_gambled", "has_gambled", "gamble", "gambles", "will_gamble"]
 --conjugations "gather" = ["gathered", "have_gathered", "has_gathered", "gather", "gathers", "will_gather"]
 --conjugations "get" = ["got", "have_gotten", "has_gotten", "get", "gets", "will_get"]
---conjugations "give" = ["gave", "have_given", "has_given", "give", "gives", "will_give"]
+conjugations "give" = ["gave", "have_given", "has_given", "give", "gives", "will_give"]
 --conjugations "goad" = ["goaded", "have_goaded", "has_goaded", "goad", "goads", "will_goad"]
 --conjugations "grant" = ["granted", "have_granted", "has_granted", "grant", "grants", "will_grant"]
 --conjugations "grasp" = ["grasped", "have_grasped", "has_grasped", "grasp", "grasps", "will_grasp"]

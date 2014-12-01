@@ -111,12 +111,46 @@ conjugProp prop targetTense = wordsToString wordList
 						npNumber = head $ number $ npFs
 
 
+conjugPropTests = [
+
+	("conjugProp 'i smiled' Past", conjugProp "i smiled" Past, "i smiled"),
+	("conjugProp 'i smiled' Perf", conjugProp "i smiled" Perf, "i have_smiled"),
+	("conjugProp 'i smiled' Pres", conjugProp "i smiled" Pres, "i smile"),
+	("conjugProp 'i smiled' Fut",  conjugProp "i smiled" Fut, "i will_smile"),
+
+	("conjugProp 'you have_shouted' Past", conjugProp "you have_shouted" Past, "you shouted"),
+	("conjugProp 'you have_shouted' Perf", conjugProp "you have_shouted" Perf, "you have_shouted"),
+	("conjugProp 'you have_shouted' Pres", conjugProp "you have_shouted" Pres, "you shout"),
+	("conjugProp 'you have_shouted' Fut",  conjugProp "you have_shouted" Fut, "you will_shout"),
+
+	("conjugProp 'the wizard will_eat the princess' Past", conjugProp "the wizard will_eat the princess" Past, "the wizard ate the princess"),
+	("conjugProp 'the wizard will_eat the princess' Perf", conjugProp "the wizard will_eat the princess" Perf, "the wizard has_eaten the princess"),
+	("conjugProp 'the wizard will_eat the princess' Pres", conjugProp "the wizard will_eat the princess" Pres, "the wizard eats the princess"),
+	("conjugProp 'the wizard will_eat the princess' Fut",  conjugProp "the wizard will_eat the princess" Fut, "the wizard will_eat the princess"),
+
+	("conjugProp 'they will_eat the princess' Past", conjugProp "they will_eat the princess" Past, "they ate the princess"),
+	("conjugProp 'they will_eat the princess' Perf", conjugProp "they will_eat the princess" Perf, "they have_eaten the princess"),
+	("conjugProp 'they will_eat the princess' Pres", conjugProp "they will_eat the princess" Pres, "they eat the princess"),
+	("conjugProp 'they will_eat the princess' Fut",  conjugProp "they will_eat the princess" Fut, "they will_eat the princess"),
+
+	("conjugProp 'the princess gives the wizard a boy' Past", conjugProp "the princess gives the wizard a boy" Past, "the princess gave the wizard a boy"),
+	("conjugProp 'the princess gives the wizard a boy' Perf", conjugProp "the princess gives the wizard a boy" Perf, "the princess has_given the wizard a boy"),
+	("conjugProp 'the princess gives the wizard a boy' Pres", conjugProp "the princess gives the wizard a boy" Pres, "the princess gives the wizard a boy"),
+	("conjugProp 'the princess gives the wizard a boy' Fut",  conjugProp "the princess gives the wizard a boy" Fut, "the princess will_give the wizard a boy"),
+
+	("conjugProp 'the giants give the dwarfs to a wizard' Past", conjugProp "the giants give the dwarfs to a wizard" Past, "the giants gave the dwarfs to a wizard"),
+	("conjugProp 'the giants give the dwarfs to a wizard' Perf", conjugProp "the giants give the dwarfs to a wizard" Perf, "the giants have_given the dwarfs to a wizard"),
+	("conjugProp 'the giants give the dwarfs to a wizard' Pres", conjugProp "the giants give the dwarfs to a wizard" Pres, "the giants give the dwarfs to a wizard"),
+	("conjugProp 'the giants give the dwarfs to a wizard' Fut",  conjugProp "the giants give the dwarfs to a wizard" Fut,  "the giants will_give the dwarfs to a wizard")
+
+	]
 
 
 
 
 runWorldTests = runUnitTests [
-	runTests conjugVerbTests
+	runTests conjugVerbTests,
+	runTests conjugPropTests
 	]
 
 -- isValid :: TProp -> Bool

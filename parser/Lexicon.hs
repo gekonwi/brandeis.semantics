@@ -148,17 +148,6 @@ lexicon "help"         = [Cat "help"     "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [
 lexicon "defeated"     = [Cat "defeated" "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
 lexicon "defeat"       = [Cat "defeat"   "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
 
-lexicon "gave"         = 
- [Cat "gave" "VP" [Past]  [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "PP" [To]       []],
-  Cat "gave" "VP" [Past]  [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "NP" [AccOrDat] []]]
-
-lexicon "give"         = 
- [Cat "give" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "PP" [To]       []],
-  Cat "give" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "NP" [AccOrDat] []]]
 
 lexicon "sold" = 
  [Cat "sold" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
@@ -8773,40 +8762,40 @@ lexicon "will_eat" = [
 --  Cat "will_get" "VP" [Fut] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []]
 --  ]
 
---lexicon "give" = [
---  Cat "give" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "give" "VP" [Pres,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "give" "VP" [Pres,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "give" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "give" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
---  Cat "give" "VP" [Pres,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
---  Cat "give" "VP" [Pres,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
---  Cat "give" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
---  ]
---lexicon "gives" = [
---  Cat "gives" "VP" [Pres,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "gives" "VP" [Pres,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
---  ]
---lexicon "gave" = [
---  Cat "gave" "VP" [Past] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "gave" "VP" [Past] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
---  ]
---lexicon "have_given" = [
---  Cat "have_given" "VP" [Perf,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "have_given" "VP" [Perf,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "have_given" "VP" [Perf,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "have_given" "VP" [Perf,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
---  Cat "have_given" "VP" [Perf,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
---  Cat "have_given" "VP" [Perf,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
---  ]
---lexicon "has_given" = [
---  Cat "has_given" "VP" [Perf,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "has_given" "VP" [Perf,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
---  ]
---lexicon "will_give" = [
---  Cat "will_give" "VP" [Fut] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
---  Cat "will_give" "VP" [Fut] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
---  ]
+lexicon "give" = [
+  Cat "give" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "give" "VP" [Pres,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "give" "VP" [Pres,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "give" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "give" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+  Cat "give" "VP" [Pres,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+  Cat "give" "VP" [Pres,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+  Cat "give" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+  ]
+lexicon "gives" = [
+  Cat "gives" "VP" [Pres,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "gives" "VP" [Pres,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+  ]
+lexicon "gave" = [
+  Cat "gave" "VP" [Past] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "gave" "VP" [Past] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+  ]
+lexicon "have_given" = [
+  Cat "have_given" "VP" [Perf,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "have_given" "VP" [Perf,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "have_given" "VP" [Perf,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "have_given" "VP" [Perf,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+  Cat "have_given" "VP" [Perf,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []],
+  Cat "have_given" "VP" [Perf,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+  ]
+lexicon "has_given" = [
+  Cat "has_given" "VP" [Perf,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "has_given" "VP" [Perf,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+  ]
+lexicon "will_give" = [
+  Cat "will_give" "VP" [Fut] [Cat "_" "NP" [AccOrDat] [], Cat "_" "NP" [AccOrDat] []],
+  Cat "will_give" "VP" [Fut] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
+  ]
 
 --lexicon "goad" = [
 --  Cat "goad" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] []],

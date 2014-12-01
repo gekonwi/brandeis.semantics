@@ -4,6 +4,21 @@ module VerbRoot where
 -- e.g. root "ate" or root "have_eaten" both result in the output "eat"
 root :: String -> String
 
+root "smiled" = "smile"
+root "have_smiled" = "smile"
+root "has_smiled" = "smile"
+root "smile" = "smile"
+root "smiles" = "smile"
+root "will_smile" = "smile"
+
+root "shouted" = "shout"
+root "have_shouted" = "shout"
+root "has_shouted" = "shout"
+root "shout" = "shout"
+root "shouts" = "shout"
+root "will_shout" = "shout"
+
+
 root "abandoned" = "abandon"
 root "have_abandoned" = "abandon"
 root "has_abandoned" = "abandon"
@@ -2300,12 +2315,12 @@ root "will_eat" = "eat"
 --root "gets" = "get"
 --root "will_get" = "get"
 
---root "gave" = "give"
---root "have_given" = "give"
---root "has_given" = "give"
---root "give" = "give"
---root "gives" = "give"
---root "will_give" = "give"
+root "gave" = "give"
+root "have_given" = "give"
+root "has_given" = "give"
+root "give" = "give"
+root "gives" = "give"
+root "will_give" = "give"
 
 --root "goaded" = "goad"
 --root "have_goaded" = "goad"
