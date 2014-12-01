@@ -70,7 +70,7 @@ w3 = World { propositions = [("john eats"),
 w4 = World { propositions = [("john eats"),
 	("georg will_sleep"), ("amy catches"), ("they will_attest")] }
 w5 = World { propositions = [("john eats"),
-	("amy catches"), ("tim has_averted"), ("they will_attest"))] }
+	("amy catches"), ("tim has_averted"), ("they will_attest")] }
 
 model = [w1,w2,w3,w4,w5]
 
@@ -239,8 +239,8 @@ existsInAllWorldCollection prop worlds =
 tp1 = TProp { tempOp = P, prop = "john eats" }
 tp2 = TProp { tempOp = F, prop = "tim has_averted" }
 tp3 = TProp { tempOp = H, prop = "amy catches" }
-tp4 = Tprop { tempOp = P, prop = "amy catches" }
-tp5 = Tprop { tempOp = G, prop = "they will_attest" }
+tp4 = TProp { tempOp = P, prop = "amy catches" }
+tp5 = TProp { tempOp = G, prop = "they will_attest" }
 
 -- quick tests (c&p)
 	-- isSatisfied tp3 w3 
