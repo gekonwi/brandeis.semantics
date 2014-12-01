@@ -55,4 +55,6 @@ conjugateVerbTests = [
 	]
 
 
-runConjugateVerbTests = runUnitTests conjugateVerbTests
+runPropTests = runUnitTests [
+	runTests conjugateVerbTests
+	]

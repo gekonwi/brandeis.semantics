@@ -46,12 +46,5 @@ showTestResults results = (concat lineGroups) ++ lastLines
 			++ [sepLine "=", "", ""]
 
 
-runUnitTests :: (Show a, Eq a) => [(String, a, a)] -> IO()
-runUnitTests testSuite = do
-	-- can't put all test suites at once since they have different types
-	mapM_ putStrLn $ showTestResults $ [
-		--runTests whereTests,
-		--runTests whoTests,
-		--runTests whatTests,
-		runTests testSuite
-		]
+runUnitTests :: [([String], Int)] -> IO()
+runUnitTests testSuites = mapM_ putStrLn $ showTestResults $ testSuites
