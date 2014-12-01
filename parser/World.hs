@@ -7,6 +7,47 @@ import UnitTest
 import P
 import VerbRoot
 
+
+{-
+=============================================================================================================
+Disclaimer
+
+We have one file with hundreds and two files with thousands of entries for various verbs (Conjugations.hs, 
+VerbRoot.hs, and Lexicon.hs). They all work, however loading them all takes forever. Thus we commented out 
+all the entries we don't use in our examples and unit tests. Please feel free to comment in any entries in 
+VerbRoot.hs, Conjugations.hs, and Lexicon.hs.
+
+
+1. Unit Tests
+
+We provide a unit test suite in the module UnitTest and employ it in the World module for various functions.
+After loading the World module in GHCI, run the command runWorldTests to see the results of each test, an
+accumulation of each test suite at the end of it, as well as an accumulation of all test suites at the very
+end.
+
+
+2. Our understanding of tenses:
+
+simple past:
+	if true at a particular time x, the same event is true in present tense at time x or at some time 
+	before x
+
+present perfect:
+	if true at a particular time x, the same event cannot be true in present tense at time x - it must be 
+	true in present tense at some time before x
+
+present:
+	if true at a particular time x, trivially it must be true at x but we we don't know anything about the
+	same event being true at any time other than x
+
+future:
+	if true at a particular time x, the same event cannot be true in present tense at time x - it must be 
+	true in present tense at some time after x
+
+=============================================================================================================
+-}
+
+
 type Prop = String
 
 data ModalOperator = Necessarily | Possibly deriving (Show, Eq)
