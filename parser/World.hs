@@ -40,7 +40,7 @@ present perfect:
 
 present:
 	if true at a particular time x, trivially it must be true at x but we we don't know anything about the
-	same event being true at any time other than x
+	same event being true in present tense at any time other than x
 
 future:
 	if true at a particular time x, the same event cannot be true in present tense at time x - it must be 
