@@ -32,12 +32,12 @@ end.
 2. Our understanding of tenses:
 
 simple past:
-	if true at a particular time x, the same event is true in present tense at time x or at some time 
-	before x
+	if true at a particular time x, the same event must be true in present tense at some time before x and can
+	(still) be true in present tense at x
 
 present perfect:
-	if true at a particular time x, the same event cannot be true in present tense at time x - it must be 
-	true in present tense at some time before x
+	if true at a particular time x, the same event must be true in present tense at some time before x and
+	cannot (still) be true in present tense at x
 
 present:
 	if true at a particular time x, trivially it must be true at x but we we don't know anything about the
