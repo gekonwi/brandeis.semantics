@@ -201,10 +201,19 @@ runWorldTests = runUnitTests [
 	runTests conjugPropTests
 	]
 
--- isValid :: TProp -> Bool
+isValid :: TProp -> Bool
+isValid (TProp tempOp prop) = 
+	case tempOp of
+		H -> existsInAllWorldCollection prop (previousAndCurrentWorlds w5)
+		P -> existsInWorldCollection prop (previousAndCurrentWorlds w1)
+		F -> existsInWorldCollection prop (futureAndCurrentWorlds w5)
+		G -> existsInAllWorldCollection prop (futureAndCurrentWorlds w1)
 
--- isSatisfiable :: TProp -> Bool
 
+isSatisfiable :: TProp -> Bool
+isSatisfiable (TProp tempOp prop) = 
+	existsInWorldCollection prop model
+	
 isSatisfied :: TProp -> World -> Bool
 isSatisfied (TProp tempOp prop) world =
 	case tempOp of
