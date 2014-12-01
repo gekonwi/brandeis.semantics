@@ -79,11 +79,6 @@ conjugVerbTests = [
 
 
 
-isLeaf :: ParseTree Cat Cat -> Bool
-isLeaf (Leaf c) = True
-isLeaf _ = False
-
-
 -- parameters:
 --		a proposition
 --		target tense, one of [Past, Perf, Pres, Fut]
@@ -98,6 +93,9 @@ conjugProp prop targetTense = wordsToString wordList
 		wordList = map conjugate $ map t2c $ filter isLeaf $ subtrees $ parseTree
 
 		wordsToString (x:xs) = foldl (\ acc x -> acc ++ " " ++ x) x xs
+
+		isLeaf (Leaf c) = True
+		isLeaf _ = False
 
 		conjugate x
 			| catLabel x == "VP"	= conjugPhonVP x
