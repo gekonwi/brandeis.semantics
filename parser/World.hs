@@ -202,10 +202,10 @@ isSatisfiable tprop =
 isSatisfied :: TProp -> World -> Bool
 isSatisfied (TProp tempOp prop) world =
 	case tempOp of
-		H -> isSatisfiedInAllWorldCollection prop (previousWorlds world)
-		P -> isSatisfiedInWorldCollection prop (previousWorlds world)
-		F -> isSatisfiedInWorldCollection prop (futureAndCurrentWorlds world)
-		G -> isSatisfiedInAllWorldCollection prop (futureAndCurrentWorlds world)
+		H -> isSatisfiedInAllWorlds prop (previousWorlds world)
+		P -> isSatisfiedInSomeWorlds prop (previousWorlds world)
+		F -> isSatisfiedInSomeWorlds prop (futureAndCurrentWorlds world)
+		G -> isSatisfiedInAllWorlds prop (futureAndCurrentWorlds world)
 
 {-
 Logic behind isSatisfiedProp:
@@ -225,12 +225,12 @@ isSatisfiedProp prop world =
 	where
 		propPres = conjugProp prop Pres
 
-isSatisfiedInWorldCollection :: Prop -> [World] -> Bool
-isSatisfiedInWorldCollection prop worlds =
+isSatisfiedInSomeWorlds :: Prop -> [World] -> Bool
+isSatisfiedInSomeWorlds prop worlds =
     any (==True) (map (isSatisfiedProp prop) worlds)
 
-isSatisfiedInAllWorldCollection :: Prop -> [World] -> Bool
-isSatisfiedInAllWorldCollection prop worlds =
+isSatisfiedInAllWorlds :: Prop -> [World] -> Bool
+isSatisfiedInAllWorlds prop worlds =
     all (==True) (map (isSatisfiedProp prop) worlds)
 
 previousWorlds :: World -> [World]
