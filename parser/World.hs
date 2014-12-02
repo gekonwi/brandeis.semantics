@@ -225,6 +225,32 @@ isSatisfiedProp prop world =
 	where
 		propPres = conjugProp prop Pres
 
+isSatisfiedPropTests = [	
+	("isSatisfiedProp 'John ate' w1", isSatisfiedProp "John ate" w1, False),
+	("isSatisfiedProp 'John ate' w2", isSatisfiedProp "John ate" w2, True),
+	("isSatisfiedProp 'John ate' w3", isSatisfiedProp "John ate" w3, True),
+	("isSatisfiedProp 'John ate' w4", isSatisfiedProp "John ate" w4, True),
+	("isSatisfiedProp 'John ate' w5", isSatisfiedProp "John ate" w5, True),
+
+	("isSatisfiedProp 'John has_eaten' w1", isSatisfiedProp "John has_eaten" w1, False),
+	("isSatisfiedProp 'John has_eaten' w2", isSatisfiedProp "John has_eaten" w2, False),
+	("isSatisfiedProp 'John has_eaten' w3", isSatisfiedProp "John has_eaten" w3, True),
+	("isSatisfiedProp 'John has_eaten' w4", isSatisfiedProp "John has_eaten" w4, False),
+	("isSatisfiedProp 'John has_eaten' w5", isSatisfiedProp "John has_eaten" w5, False),
+
+	("isSatisfiedProp 'John eats' w1", isSatisfiedProp "John eats" w1, True),
+	("isSatisfiedProp 'John eats' w2", isSatisfiedProp "John eats" w2, True),
+	("isSatisfiedProp 'John eats' w3", isSatisfiedProp "John eats" w3, False),
+	("isSatisfiedProp 'John eats' w4", isSatisfiedProp "John eats" w4, True),
+	("isSatisfiedProp 'John eats' w5", isSatisfiedProp "John eats" w5, True),
+	
+	("isSatisfiedProp 'John will_eat' w1", isSatisfiedProp "John will_eat" w1, True),
+	("isSatisfiedProp 'John will_eat' w2", isSatisfiedProp "John will_eat" w2, True),
+	("isSatisfiedProp 'John will_eat' w3", isSatisfiedProp "John will_eat" w3, True),
+	("isSatisfiedProp 'John will_eat' w4", isSatisfiedProp "John will_eat" w4, True),
+	("isSatisfiedProp 'John will_eat' w5", isSatisfiedProp "John will_eat" w5, False)
+	]
+
 isSatisfiedInSomeWorlds :: Prop -> [World] -> Bool
 isSatisfiedInSomeWorlds prop worlds =
     any (==True) (map (isSatisfiedProp prop) worlds)
@@ -395,5 +421,6 @@ propTense prop = head $ P.tense $ P.fs $ P.t2c $ P.subtree (head $ prs prop) [1]
 
 runWorldTests = runUnitTests [
 	runTests conjugVerbTests,
-	runTests conjugPropTests
+	runTests conjugPropTests,
+	runTests isSatisfiedPropTests
 	]
