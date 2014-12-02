@@ -211,6 +211,15 @@ isSatisfied (TProp tempOp prop) world =
 		F -> isSatisfiedInWorldCollection prop (futureAndCurrentWorlds world)
 		G -> isSatisfiedInAllWorldCollection prop (futureAndCurrentWorlds world)
 
+
+{-
+Logic behind isSatisfiedProp:
+
+(John ate, w_x) is satisfied iff there is an n < x with (John eats, w_n)
+(John has_eaten, w_x) is satisfied iff there is an n < x with (John eats, w_n) and NOT (John eats, w_x)
+(John eats, w_x) is satisfied iff (John eats, w_x)
+(John will_eat, w_x) is satisfied iff there is an n > x with (John eats, w_n)
+-}
 isSatisfiedProp :: Prop -> World -> Bool
 isSatisfiedProp prop world = 
 	case propTense prop of
