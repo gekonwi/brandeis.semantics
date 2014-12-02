@@ -198,6 +198,25 @@ isValid :: TProp -> Bool
 isValid tprop = 
 	all (==True) (map (isSatisfied tprop) model)
 
+isValidTests = [
+	("isValid (TProp H 'the wizard smiles')", isValid (TProp H "the wizard smiles"), False),
+	("isValid (TProp H 'the wizard smiled')", isValid (TProp H "the wizard smiled"), False),
+	("isValid (TProp H 'amy will_sleep')", isValid (TProp H "amy will_sleep"), False),
+	("isValid (TProp H 'amy shouted')", isValid (TProp H "amy shouted"), False),
+	("isValid (TProp H 'the princess will_love the dwarf')", isValid (TProp H "the princess will_love the dwarf"), True),
+	("isValid (TProp H 'amy will_catch herself')", isValid (TProp H "amy will_catch herself"), True),
+	("isValid (TProp P 'the wizard smiles')", isValid (TProp P "the wizard smiles"), False),
+	("isValid (TProp P 'the wizard smiled')", isValid (TProp P "the wizard smiled"), False),
+	("isValid (TProp P 'john has_eaten')", isValid (TProp P "john has_eaten"), False),
+	("isValid (TProp F 'they will_run')", isValid (TProp F "they will_run"), False),
+	("isValid (TProp F 'john sleeps')", isValid (TProp F "john sleeps"), False),
+	("isValid (TProp G 'amy has_slept')", isValid (TProp G "amy has_slept"), False),
+	("isValid (TProp G 'they will_run')", isValid (TProp G "they will_run"), False),
+	("isValid (TProp G 'the princess loves the dwarf')", isValid (TProp G "the princess loves the dwarf"), True),
+	("isValid (TProp G 'the princess has_loved the dwarf')", isValid (TProp G "the princess has_loved the dwarf"), False)
+	]
+
+
 isSatisfiable :: TProp -> Bool
 isSatisfiable tprop = 
 	any (==True) (map (isSatisfied tprop) model)
@@ -508,5 +527,6 @@ runWorldTests = runUnitTests [
 	runTests conjugPropTests,
 	runTests isSatisfiedPropTests,
 	runTests isSatisfiedTests,
-	runTests isSatisfiableTests
+	runTests isSatisfiableTests,
+	runTests isValidTests
 	]
