@@ -62,16 +62,12 @@ data TProp = TProp { tempOp :: TemporalOperator,
 
 data World = World { propositions :: [Prop] } deriving (Show, Eq)
 
-w1 = World { propositions = [("john eats"),
-	("the wizard smiled"), ("georg will_sleep")] }
-w2 = World { propositions = [("john eats"),
-	("georg will_sleep")] }
-w3 = World { propositions = [("john eats"),
-	("amy catches"), ("georg will_sleep"), ("they attest")] }
-w4 = World { propositions = [("john eats"),
-	("georg will_sleep"), ("amy catches"), ("they will_attest")] }
-w5 = World { propositions = [("john eats"),
-	("amy catches"), ("tim has_averted"), ("they will_attest")] }
+w1 = World { propositions = [("john eats"), ("amy sleeps"), ("the wizard smiles")] }
+w2 = World { propositions = [("john eats"), ("amy sleeps")] }
+w3 = World { propositions = [("amy catches"), ("john sleeps"), ("they attest")] }
+--w3 = World { propositions = [("john eats"), ("amy catches"), ("john sleeps"), ("they attest")] }
+w4 = World { propositions = [("john eats"), ("amy catches"), ("john sleeps"), ("they attest")] }
+w5 = World { propositions = [("john eats"), ("amy catches"), ("he averts"), ("they attest")] }
 
 model = [w1,w2,w3,w4,w5]
 
