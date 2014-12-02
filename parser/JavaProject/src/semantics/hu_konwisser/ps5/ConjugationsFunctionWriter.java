@@ -28,13 +28,13 @@ public class ConjugationsFunctionWriter {
 
 	private final Conjugator conj = new Conjugator();
 
-	public void write(Path ouput, List<BVLVerb> verbs) throws IOException {
+	public void write(Path output, List<BVLVerb> verbs) throws IOException {
 		System.out.println("ConjugationsFunctionWriter: Strarting writing "
-				+ ouput);
+				+ output);
 
-		Files.copy(CONJUGATIONS_HEAD_PATH, ouput, REPLACE_EXISTING);
+		Files.copy(CONJUGATIONS_HEAD_PATH, output, REPLACE_EXISTING);
 
-		BufferedWriter bw = Files.newBufferedWriter(ouput,
+		BufferedWriter bw = Files.newBufferedWriter(output,
 				Charset.forName("UTF-8"), APPEND);
 
 		for (BVLVerb verb : verbs) {
@@ -45,8 +45,8 @@ public class ConjugationsFunctionWriter {
 		}
 
 		bw.write("\n\n");
-		bw.write("conjugations x = error $ \"conjugations for [\" ++ (show x) ++ \"] not defined. "
-				+ "maybe it is just commented out?\"");
+		bw.write("conjugations x = error $ \"conjugations for [\" ++ (show x) ++ \"] not defined in "
+				+ output.getFileName() + ". Maybe it is just commented out?\"");
 
 		bw.flush();
 		bw.close();

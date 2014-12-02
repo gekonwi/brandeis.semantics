@@ -8,7 +8,7 @@ import java.util.List;
 import semantics.hu_konwisser.ps5.bvl.BVLReader;
 import semantics.hu_konwisser.ps5.bvl.BVLVerb;
 
-public class ConjugatoinsFunctionMain {
+public class ConjugationsFunctionMain {
 	public static void main(String[] args) throws IOException {
 		Path input = Paths.get("static", "brandeis_verb_lexikon-cleaned.txt");
 		Path ouput = Paths.get("generated", "Conjugations.hs");

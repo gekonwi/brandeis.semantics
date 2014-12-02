@@ -45,8 +45,8 @@ public class RootFunctionWriter {
 		}
 
 		bw.write("\n\n");
-		bw.write("root x = error $ \"root for [\" ++ (show x) ++ \"] is not defined. "
-				+ "maybe it is just commented out?\"");
+		bw.write("root x = error $ \"root for [\" ++ (show x) ++ \"] is not defined in "
+				+ output.getFileName() + ". Maybe it is just commented out?\"");
 
 		bw.flush();
 		bw.close();

@@ -56,8 +56,8 @@ public class LexiconWriter {
 		}
 
 		bw.write("\n\n");
-		bw.write("lexicon x = error $ \"lexicon entry for [\" ++ (show x) ++ \"] is not defined. "
-				+ "maybe it is just commented out?\"");
+		bw.write("lexicon x = error $ \"lexicon entry for [\" ++ (show x) ++ \"] is not defined in "
+				+ output.getFileName() + ". Maybe it is just commented out?\"");
 
 		bw.flush();
 		bw.close();
