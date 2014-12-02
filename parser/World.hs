@@ -195,13 +195,6 @@ conjugPropTests = [
 	]
 
 
-
-
-runWorldTests = runUnitTests [
-	runTests conjugVerbTests,
-	runTests conjugPropTests
-	]
-
 isValid :: TProp -> Bool
 isValid (TProp tempOp prop) = 
 	case tempOp of
@@ -222,19 +215,6 @@ isSatisfied (TProp tempOp prop) world =
 		P -> existsInWorldCollection prop (previousAndCurrentWorlds world)
 		F -> existsInWorldCollection prop (futureAndCurrentWorlds world)
 		G -> existsInAllWorldCollection prop (futureAndCurrentWorlds world)
-
-
-{-
-parameters:
-	Prop: the proposition which is true at the given world
-	Int: the world number between 1 and (length model)
-returns:
-	a list of (ModalOperator, String, Prop) tuples where String identifies the world, e.g. "w4",
-	and Prop is the proposition in past, perfect, present, or future tense which is entailed by
-	the input (with respect to the ModalOperator)
--}
-entailments :: Prop -> Int -> [(ModalOperator, String, Prop)]
-
 
 
 previousAndCurrentWorlds :: World -> [World]
@@ -273,3 +253,121 @@ tp5 = TProp { tempOp = G, prop = "they will_attest" }
 		-- False
 	-- isSatisfied tp2 w5
 		-- True
+
+
+
+{-
+Given our definition of tenses as listed above, we derive the following entailments:
+
+### input in Past
+(John ate, w_x) entails:
+
+	(Nec, John ate, w_n)	for all n >= x
+	
+	(Nec, John has_eaten, w_n)	for all n >= x 	if NOT (John eats, w_n)
+	
+	(Nec, John eats, w_1)	if x = 2
+	(Pos, John eats, w_n)	for all n < x 	if x > 2
+
+
+### input in Perf
+(John has_eaten, w_x) entails:
+
+	(Nec, John ate, w_n)	for all n >= x
+
+	(Nec, John has_eaten)	for all n >= x 	if NOT (John eats, w_n)
+
+	(Nec, John eats, w_1)	if x = 2
+	(Pos, John eats, w_n)	for all n < x 	if x > 2	
+
+
+### input in Pres
+(John eats, w_x) entails:
+
+	(Nec, John ate, w_n)	for all n > x
+
+	(Nec, John has_eaten, w_n)	for all n > x 	if NOT (John eats, w_n)
+
+	(Nec, John eats, w_x)
+
+	(Nec, John will_eat, w_n)	for all n < x
+
+
+### input in Fut
+(John will_eat, w_x) entails:
+
+	(Nec, John eats, w_n)	with n = (length model)		if x = n - 1
+	(Pos, John eats, w_n)	for all n > x 				if x < n - 1
+
+	(Nec, John will_eat, w_n)	for all n <= x
+-}
+{-
+parameters:
+	Prop: the proposition which is true at the given world
+	Int: the world number between 1 and (length model)
+returns:
+	a list of (ModalOperator, String, Prop) tuples where String identifies the world, e.g. "w4",
+	and Prop is the proposition in past, perfect, present, or future tense which is entailed by
+	the input (with respect to the ModalOperator)
+-}
+entailments :: Prop -> Int -> [(ModalOperator, String, Prop)]
+
+entailments prop worldID = case propTense prop of
+	Past -> entailmentsFromPastOrPerf prop
+	Perf -> entailmentsFromPastOrPerf prop
+	Pres -> entailmentsFromPres prop
+	Fut  -> entailmentsFromFut prop
+
+	where
+		propPast = conjugProp prop Past
+		propPerf = conjugProp prop Perf
+		propPres = conjugProp prop Pres
+		propFut  = conjugProp prop Fut
+		
+		maxWorldID = length model
+
+		propTense prop = head $ P.tense $ P.fs $ P.t2c $ P.subtree (head $ prs prop) [1]
+
+		worlds minID maxID modalOp resultProp =
+			let
+				normMinID = max 1 minID
+				normMaxID = min maxWorldID maxID
+			in
+				[(modalOp, "w" ++ (show n), resultProp) | n <- [normMinID..normMaxID]]
+
+		worldsNoPres minID maxID modalOp resultProp =
+			let 
+				normMinID = max 1 minID
+				normMaxID = min maxWorldID maxID
+			in 
+				[(modalOp, "w" ++ (show n), resultProp) | n <- [normMinID..normMaxID],
+					not (propPres `elem` (propositions $ model!!(n-1)))
+					]
+
+		entailmentsFromPastOrPerf prop =
+			(worlds worldID maxWorldID Necessarily propPast) ++
+			(worldsNoPres worldID maxWorldID Necessarily propPerf) ++
+			(if worldID == 2
+				then [(Necessarily, "w1", propPres)]
+				else worlds 1 (worldID - 1) Possibly propPres
+			)
+
+		entailmentsFromPres prop =
+			(worlds (worldID + 1) maxWorldID Necessarily propPast) ++
+			(worldsNoPres (worldID + 1) maxWorldID Necessarily propPerf) ++
+			[(Necessarily, "w" ++ (show worldID), propPres)] ++
+			(worlds 1 (worldID - 1) Necessarily propFut)
+
+		entailmentsFromFut prop =
+			(if worldID == maxWorldID - 1
+				then [(Necessarily, "w" ++ (show maxWorldID), propPres)]
+				else worlds (worldID + 1) maxWorldID Possibly propPres
+				) ++
+			(worlds 1 worldID Necessarily propFut)
+
+
+
+runWorldTests = runUnitTests [
+	runTests conjugVerbTests,
+	runTests conjugPropTests
+	]
