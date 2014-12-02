@@ -134,9 +134,6 @@ lexicon "did"    = [Cat "did"    "AUX" [] []]
 lexicon "didn't" = [Cat "didn't" "AUX" [] []]
 
 
-lexicon "smiled"    = [Cat "smiled"    "VP" [Past] []]
-lexicon "smile"     = [Cat "smile"     "VP" [Infl]  []]
-
 lexicon "cheered"   = [Cat "cheered"   "VP" [Past] []]
 lexicon "cheer"     = [Cat "cheer"     "VP" [Infl]  []]
 

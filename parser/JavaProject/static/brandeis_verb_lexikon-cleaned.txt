@@ -743,6 +743,7 @@ SLEEP       INTRANS
 SLIDE       INTRANS         DO              P_dir-NP          DO-P_dir-NP
 SLIP        INTRANS         DO              DO-P_into-NP        P_on-NP
 SMELL       INTRANS         DO
+SMILE		INTRANS 		P_at-NP
 SNEAK       DO-P_into-through-NP     INTRANS         P_into-through-NP
 SNORE       INTRANS
 SOAK        DO              INTRANS         DO-P_in-with-NP
