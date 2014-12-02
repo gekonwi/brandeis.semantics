@@ -274,13 +274,13 @@ isSatisfied (TProp tempOp prop) world =
 
 
 isSatisfiedTests = [
-	("isSatisfied (TProp H 'the wizard smiles') w1", isSatisfied (TProp H "the wizard smiles") w1, False),
+	("isSatisfied (TProp H 'the wizard smiles') w1", isSatisfied (TProp H "the wizard smiles") w1, True),
 	("isSatisfied (TProp H 'the wizard smiles') w2", isSatisfied (TProp H "the wizard smiles") w2, True),
 	("isSatisfied (TProp H 'the wizard smiles') w3", isSatisfied (TProp H "the wizard smiles") w3, False),
-	("isSatisfied (TProp H 'the wizard smiled') w1", isSatisfied (TProp H "the wizard smiled") w1, False),
+	("isSatisfied (TProp H 'the wizard smiled') w1", isSatisfied (TProp H "the wizard smiled") w1, True),
 	("isSatisfied (TProp H 'the wizard smiled') w2", isSatisfied (TProp H "the wizard smiled") w2, False),
 	("isSatisfied (TProp H 'the wizard smiled') w3", isSatisfied (TProp H "the wizard smiled") w3, False),
-	("isSatisfied (TProp H 'amy will_sleep') w1", isSatisfied (TProp H "amy will_sleep") w1, False),
+	("isSatisfied (TProp H 'amy will_sleep') w1", isSatisfied (TProp H "amy will_sleep") w1, True),
 	("isSatisfied (TProp H 'amy will_sleep') w2", isSatisfied (TProp H "amy will_sleep") w2, True),
 	("isSatisfied (TProp H 'amy will_sleep') w3", isSatisfied (TProp H "amy will_sleep") w3, False),
 	("isSatisfied (TProp H 'amy will_sleep') w4", isSatisfied (TProp H "amy will_sleep") w4, False),
