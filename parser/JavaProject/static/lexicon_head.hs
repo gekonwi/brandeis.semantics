@@ -133,38 +133,18 @@ lexicon "daggers"  = [Cat "daggers"  "CN" [Pl,Neutr,Thrd] []]
 lexicon "did"    = [Cat "did"    "AUX" [] []]
 lexicon "didn't" = [Cat "didn't" "AUX" [] []]
 
+
 lexicon "smiled"    = [Cat "smiled"    "VP" [Past] []]
 lexicon "smile"     = [Cat "smile"     "VP" [Infl]  []]
-lexicon "laughed"   = [Cat "laughed"   "VP" [Past] []]
-lexicon "laugh"     = [Cat "laugh"     "VP" [Infl]  []]
+
 lexicon "cheered"   = [Cat "cheered"   "VP" [Past] []]
 lexicon "cheer"     = [Cat "cheer"     "VP" [Infl]  []]
+
 lexicon "shuddered" = [Cat "shuddered" "VP" [Past] []]
 lexicon "shudder"   = [Cat "shudder"   "VP" [Infl]  []]
-
-lexicon "loved"     = [Cat "loved"    "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
-lexicon "love"         = [Cat "love"     "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
-                    
-lexicon "admired"      = [Cat "admired"  "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
-lexicon "admire"       = [Cat "admire"   "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
-                          
-lexicon "helped"       = [Cat "helped"   "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
-lexicon "help"         = [Cat "help"     "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
-                    
+                                        
 lexicon "defeated"     = [Cat "defeated" "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
 lexicon "defeat"       = [Cat "defeat"   "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]]
-
-
-lexicon "sold" = 
- [Cat "sold" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "PP" [To]       []],
-  Cat "sold" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "NP" [AccOrDat] []]]
-lexicon "sell" = 
- [Cat "sell" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "PP" [To]       []],
-  Cat "sell" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "NP" [AccOrDat] []]]
 
 lexicon "kicked" = 
  [Cat "kicked" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
@@ -176,15 +156,6 @@ lexicon "kick" =
                       Cat "_" "PP" [With]     []], 
   Cat "kick"   "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]] 
 
-lexicon "took" = 
- [Cat "took" "VP" [Past] [Cat "_" "NP" [AccOrDat] [],
-                    Cat "_" "PP" [From]     []], 
-  Cat "took" "VP" [Past] [Cat "_" "NP" [AccOrDat] []]]
-
-lexicon "take" = 
- [Cat "take" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] [],
-                           Cat "_" "PP" [From]     []], 
-  Cat "take" "VP" [Infl]  [Cat "_" "NP" [AccOrDat] []]] 
 
 lexicon "about" = [Cat "about" "PREP" [About] []]
 lexicon "at" = [Cat "at" "PREP" [At] []]
@@ -208,18 +179,4 @@ lexicon "and"   = [Cat "and"  "CONJ" [] []]
 lexicon "."     = [Cat "."    "CONJ" [] []]
 lexicon "if"    = [Cat "if"   "COND" [] []]
 lexicon "then"  = [Cat "then" "THEN" [] []]
-
-lexicon "shouted"    = [Cat "shouted"    "VP" [Past] []]
-lexicon "shout"    = [
-  Cat "shout"    "VP" [Pres,Sg,Fst] [],
-	Cat "shout"    "VP" [Pres,Sg,Snd] [],
-	Cat "shout"    "VP" [Pres,Pl]  [],
-	Cat "shout"    "VP" [Infl]  []]
-lexicon "shouts"    = [Cat "shouts"    "VP" [Pres,Sg,Thrd] []]
-lexicon "will_shout"    = [Cat "will_shout"    "VP" [Fut] []]
-lexicon "have_shouted"	= [
-  Cat "have_shouted"  "VP" [Perf,Sg,Fst] [],
-	Cat "have_shouted"  "VP" [Perf,Sg,Snd] [],
-	Cat "have_shouted"  "VP" [Perf,Pl] []]
-lexicon "has_shouted"   = [Cat "has_shouted"   "VP" [Perf,Sg,Thrd] []]
 
