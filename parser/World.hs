@@ -259,13 +259,13 @@ isSatisfied :: TProp -> World -> Bool
 isSatisfied (TProp tempOp prop) world =
 	case tempOp of
 		H -> isSatisfiedInAllWorlds prop (previousWorlds world)
-		P -> isSatisfiedInSomeWorlds prop (previousWorlds world)
-		F -> isSatisfiedInSomeWorlds prop (futureAndCurrentWorlds world)
+		P -> isSatisfiedInSomeWorld prop (previousWorlds world)
+		F -> isSatisfiedInSomeWorld prop (futureAndCurrentWorlds world)
 		G -> isSatisfiedInAllWorlds prop (futureAndCurrentWorlds world)
 
 	where
-		isSatisfiedInSomeWorlds :: Prop -> [World] -> Bool
-		isSatisfiedInSomeWorlds prop worlds =
+		isSatisfiedInSomeWorld :: Prop -> [World] -> Bool
+		isSatisfiedInSomeWorld prop worlds =
 			any (==True) (map (isSatisfiedProp prop) worlds)
 
 		isSatisfiedInAllWorlds :: Prop -> [World] -> Bool
@@ -286,7 +286,7 @@ isSatisfiedTests = [
 	("isSatisfied (TProp H 'amy will_sleep') w4", isSatisfied (TProp H "amy will_sleep") w4, False),
 	("isSatisfied (TProp H 'amy will_sleep') w5", isSatisfied (TProp H "amy will_sleep") w5, False),
 	("isSatisfied (TProp H 'the princess will_love the dwarf') w5", isSatisfied (TProp H "the princess will_love the dwarf") w5, True),
-	("isSatisfied (TProp H 'amy will_catch') w5", isSatisfied (TProp H "amy will_catch") w5, False),
+	("isSatisfied (TProp H 'amy will_catch herself') w5", isSatisfied (TProp H "amy will_catch herself") w5, False),
 	("isSatisfied (TProp P 'the wizard smiles') w1", isSatisfied (TProp P "the wizard smiles") w1, False),
 	("isSatisfied (TProp P 'the wizard smiles') w2", isSatisfied (TProp P "the wizard smiles") w2, True),
 	("isSatisfied (TProp P 'the wizard smiles') w3", isSatisfied (TProp P "the wizard smiles") w3, True),
@@ -335,16 +335,16 @@ Logic behind isSatisfiedProp:
 isSatisfiedProp :: Prop -> World -> Bool
 isSatisfiedProp prop world = 
 	case propTense prop of
-		Past -> existsInSomeWorlds propPres (previousWorlds world)
-		Perf -> (existsInSomeWorlds propPres (previousWorlds world)) && (not (existsInWorld propPres world))
+		Past -> existsInSomeWorld propPres (previousWorlds world)
+		Perf -> (existsInSomeWorld propPres (previousWorlds world)) && (not (existsInWorld propPres world))
 		Pres -> existsInWorld propPres world
-		Fut -> existsInSomeWorlds propPres (futureWorlds world)
+		Fut -> existsInSomeWorld propPres (futureWorlds world)
 	
 	where
 		propPres = conjugProp prop Pres
 
-		existsInSomeWorlds :: Prop -> [World] -> Bool
-		existsInSomeWorlds prop worlds = 
+		existsInSomeWorld :: Prop -> [World] -> Bool
+		existsInSomeWorld prop worlds = 
 			any (==True) (map (existsInWorld prop) worlds)
 
 		existsInWorld :: Prop -> World -> Bool
@@ -527,7 +527,12 @@ returns:
 		the tense of the given proposition
 -}
 propTense :: Prop -> Feat
-propTense prop = head $ P.tense $ P.fs $ P.t2c $ P.subtree (head $ prs prop) [1]
+propTense prop 
+	| parsed == [] = error ("propTense: cannot parse [" ++ (show prop) ++ 
+		"]. At least one word is not defined in the lexicon. Maybe it's commented out?")
+	| otherwise	   = head $ P.tense $ P.fs $ P.t2c $ P.subtree (head $ parsed) [1]
+	where
+		parsed = prs prop
 
 
 runWorldTests = runUnitTests [
