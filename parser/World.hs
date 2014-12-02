@@ -134,16 +134,20 @@ conjugProp prop targetTense = wordsToString wordList
 		parseTree = head $ prs prop
 		wordList = map conjugate $ map t2c $ filter isLeaf $ subtrees $ parseTree
 
+		wordsToString :: [String] -> String
 		wordsToString (x:xs) = foldl (\ acc x -> acc ++ " " ++ x) x xs
 
+		isLeaf :: ParseTree a a -> Bool
 		isLeaf (Leaf c) = True
 		isLeaf _ = False
 
+		conjugate :: Cat -> String
 		conjugate x
 			| catLabel x == "VP"	= conjugPhonVP x
 			| otherwise				= phon x
 		
 			where
+				conjugPhonVP :: Cat -> String
 				conjugPhonVP x = conjugVerb verbRoot npPerson npNumber targetTense
 
 					where
@@ -197,6 +201,59 @@ isValid tprop =
 isSatisfiable :: TProp -> Bool
 isSatisfiable tprop = 
 	any (==True) (map (isSatisfied tprop) model)
+
+--isSatisfiableTests = [
+--	("isSatisfied (TProp H 'the wizard smiles') w1", isSatisfied (TProp H "the wizard smiles") w1, False),
+--	("isSatisfied (TProp H 'the wizard smiles') w2", isSatisfied (TProp H "the wizard smiles") w2, True),
+--	("isSatisfied (TProp H 'the wizard smiles') w3", isSatisfied (TProp H "the wizard smiles") w3, False),
+--	("isSatisfied (TProp H 'the wizard smiled') w1", isSatisfied (TProp H "the wizard smiled") w1, False),
+--	("isSatisfied (TProp H 'the wizard smiled') w2", isSatisfied (TProp H "the wizard smiled") w2, False),
+--	("isSatisfied (TProp H 'the wizard smiled') w3", isSatisfied (TProp H "the wizard smiled") w3, False),
+--	("isSatisfied (TProp H 'amy will_sleep') w1", isSatisfied (TProp H "amy will_sleep") w1, False),
+--	("isSatisfied (TProp H 'amy will_sleep') w2", isSatisfied (TProp H "amy will_sleep") w2, True),
+--	("isSatisfied (TProp H 'amy will_sleep') w3", isSatisfied (TProp H "amy will_sleep") w3, False),
+--	("isSatisfied (TProp H 'amy will_sleep') w4", isSatisfied (TProp H "amy will_sleep") w4, False),
+--	("isSatisfied (TProp H 'amy will_sleep') w5", isSatisfied (TProp H "amy will_sleep") w5, False),
+--	("isSatisfied (TProp H 'the princess will_love the dwarf') w5", isSatisfied (TProp H "the princess will_love the dwarf") w5, True),
+--	("isSatisfied (TProp H 'amy will_catch') w5", isSatisfied (TProp H "amy will_catch") w5, False),
+--	("isSatisfied (TProp P 'the wizard smiles') w1", isSatisfied (TProp P "the wizard smiles") w1, False),
+--	("isSatisfied (TProp P 'the wizard smiles') w2", isSatisfied (TProp P "the wizard smiles") w2, True),
+--	("isSatisfied (TProp P 'the wizard smiles') w3", isSatisfied (TProp P "the wizard smiles") w3, True),
+--	("isSatisfied (TProp P 'the wizard smiled') w1", isSatisfied (TProp P "the wizard smiled") w1, False),
+--	("isSatisfied (TProp P 'the wizard smiled') w2", isSatisfied (TProp P "the wizard smiled") w2, False),
+--	("isSatisfied (TProp P 'the wizard smiled') w3", isSatisfied (TProp P "the wizard smiled") w3, True),
+--	("isSatisfied (TProp P 'the wizard smiled') w4", isSatisfied (TProp P "the wizard smiled") w4, True),
+--	("isSatisfied (TProp P 'the wizard smiled') w5", isSatisfied (TProp P "the wizard smiled") w5, True),
+--	("isSatisfied (TProp P 'john has_eaten') w2", isSatisfied (TProp P "john has_eaten") w2, False),
+--	("isSatisfied (TProp P 'john has_eaten') w3", isSatisfied (TProp P "john has_eaten") w3, False),
+--	("isSatisfied (TProp P 'john has_eaten') w4", isSatisfied (TProp P "john has_eaten") w4, True),
+--	("isSatisfied (TProp P 'john has_eaten') w5", isSatisfied (TProp P "john has_eaten") w5, True),
+--	("isSatisfied (TProp F 'they will_attest') w1", isSatisfied (TProp F "they will_attest") w1, True),
+--	("isSatisfied (TProp F 'they will_attest') w2", isSatisfied (TProp F "they will_attest") w2, True),
+--	("isSatisfied (TProp F 'they will_attest') w3", isSatisfied (TProp F "they will_attest") w3, True),
+--	("isSatisfied (TProp F 'they will_attest') w4", isSatisfied (TProp F "they will_attest") w4, True),
+--	("isSatisfied (TProp F 'they will_attest') w5", isSatisfied (TProp F "they will_attest") w5, False),
+--	("isSatisfied (TProp F 'john sleeps') w1", isSatisfied (TProp F "john sleeps") w1, True),
+--	("isSatisfied (TProp F 'john sleeps') w2", isSatisfied (TProp F "john sleeps") w2, True),
+--	("isSatisfied (TProp F 'john sleeps') w3", isSatisfied (TProp F "john sleeps") w3, True),
+--	("isSatisfied (TProp F 'john sleeps') w4", isSatisfied (TProp F "john sleeps") w4, True),
+--	("isSatisfied (TProp F 'john sleeps') w5", isSatisfied (TProp F "john sleeps") w5, False),
+--	("isSatisfied (TProp G 'amy has_slept') w2", isSatisfied (TProp G "amy has_slept") w2, False),
+--	("isSatisfied (TProp G 'amy has_slept') w3", isSatisfied (TProp G "amy has_slept") w3, True),
+--	("isSatisfied (TProp G 'amy has_slept') w4", isSatisfied (TProp G "amy has_slept") w4, True),
+--	("isSatisfied (TProp G 'amy has_slept') w5", isSatisfied (TProp G "amy has_slept") w5, True),
+--	("isSatisfied (TProp G 'they will attest') w1", isSatisfied (TProp G "they will attest") w1, False),
+--	("isSatisfied (TProp G 'they will attest') w2", isSatisfied (TProp G "they will attest") w2, False),
+--	("isSatisfied (TProp G 'they will attest') w3", isSatisfied (TProp G "they will attest") w3, False),
+--	("isSatisfied (TProp G 'the princess loves the dwarf') w1", isSatisfied (TProp G "the princess loves the dwarf") w1, True),
+--	("isSatisfied (TProp G 'the princess loves the dwarf') w2", isSatisfied (TProp G "the princess loves the dwarf") w2, True),
+--	("isSatisfied (TProp G 'the princess loves the dwarf') w3", isSatisfied (TProp G "the princess loves the dwarf") w3, True),
+--	("isSatisfied (TProp G 'the princess loves the dwarf') w4", isSatisfied (TProp G "the princess loves the dwarf") w4, True),
+--	("isSatisfied (TProp G 'the princess loves the dwarf') w5", isSatisfied (TProp G "the princess loves the dwarf") w5, True)
+--	]
+
+
+
 	
 isSatisfied :: TProp -> World -> Bool
 isSatisfied (TProp tempOp prop) world =
@@ -205,6 +262,16 @@ isSatisfied (TProp tempOp prop) world =
 		P -> isSatisfiedInSomeWorlds prop (previousWorlds world)
 		F -> isSatisfiedInSomeWorlds prop (futureAndCurrentWorlds world)
 		G -> isSatisfiedInAllWorlds prop (futureAndCurrentWorlds world)
+
+	where
+		isSatisfiedInSomeWorlds :: Prop -> [World] -> Bool
+		isSatisfiedInSomeWorlds prop worlds =
+			any (==True) (map (isSatisfiedProp prop) worlds)
+
+		isSatisfiedInAllWorlds :: Prop -> [World] -> Bool
+		isSatisfiedInAllWorlds prop worlds =
+			all (==True) (map (isSatisfiedProp prop) worlds)
+
 
 isSatisfiedTests = [
 	("isSatisfied (TProp H 'the wizard smiles') w1", isSatisfied (TProp H "the wizard smiles") w1, False),
@@ -268,12 +335,23 @@ Logic behind isSatisfiedProp:
 isSatisfiedProp :: Prop -> World -> Bool
 isSatisfiedProp prop world = 
 	case propTense prop of
-		Past -> existsInWorldCollection propPres (previousWorlds world)
-		Perf -> (existsInWorldCollection propPres (previousWorlds world)) && (not (existsInWorld propPres world))
+		Past -> existsInSomeWorlds propPres (previousWorlds world)
+		Perf -> (existsInSomeWorlds propPres (previousWorlds world)) && (not (existsInWorld propPres world))
 		Pres -> existsInWorld propPres world
-		Fut -> existsInWorldCollection propPres (futureWorlds world)
+		Fut -> existsInSomeWorlds propPres (futureWorlds world)
+	
 	where
 		propPres = conjugProp prop Pres
+
+		existsInSomeWorlds :: Prop -> [World] -> Bool
+		existsInSomeWorlds prop worlds = 
+			any (==True) (map (existsInWorld prop) worlds)
+
+		existsInWorld :: Prop -> World -> Bool
+		existsInWorld prop (World propositions) = 
+			any (==prop) propositions
+
+
 
 isSatisfiedPropTests = [	
 	("isSatisfiedProp 'John ate' w1", isSatisfiedProp "John ate" w1, False),
@@ -301,13 +379,6 @@ isSatisfiedPropTests = [
 	("isSatisfiedProp 'John will_eat' w5", isSatisfiedProp "John will_eat" w5, False)
 	]
 
-isSatisfiedInSomeWorlds :: Prop -> [World] -> Bool
-isSatisfiedInSomeWorlds prop worlds =
-    any (==True) (map (isSatisfiedProp prop) worlds)
-
-isSatisfiedInAllWorlds :: Prop -> [World] -> Bool
-isSatisfiedInAllWorlds prop worlds =
-    all (==True) (map (isSatisfiedProp prop) worlds)
 
 previousWorlds :: World -> [World]
 previousWorlds world = 
@@ -321,17 +392,6 @@ futureAndCurrentWorlds :: World -> [World]
 futureAndCurrentWorlds world = 
 	drop (fromJust (elemIndex world model)) . take 5 $ model
 
-existsInWorld :: Prop -> World -> Bool
-existsInWorld prop (World propositions) = 
-	any (==prop) propositions
-
-existsInWorldCollection :: Prop -> [World] -> Bool
-existsInWorldCollection prop worlds = 
-	any (==True) (map (existsInWorld prop) worlds)
-
-existsInAllWorldCollection :: Prop -> [World] -> Bool
-existsInAllWorldCollection prop worlds = 
-	all (==True) (map (existsInWorld prop) worlds)
 
 -- Test Data
 tp1 = TProp { tempOp = P, prop = "john eats" }
@@ -355,7 +415,6 @@ tp5 = TProp { tempOp = G, prop = "they attest" }
 {-
 Given our definition of tenses as listed above, we derive the following entailments:
 
-### input in Past
 (John ate, w_x) entails:
 
 	(Nec, John ate, w_n)	for all n >= x
@@ -366,7 +425,6 @@ Given our definition of tenses as listed above, we derive the following entailme
 	(Pos, John eats, w_n)	for all n < x 	if x > 2
 
 
-### input in Perf
 (John has_eaten, w_x) entails:
 
 	(Nec, John ate, w_n)	for all n >= x
@@ -377,7 +435,6 @@ Given our definition of tenses as listed above, we derive the following entailme
 	(Pos, John eats, w_n)	for all n < x 	if x > 2	
 
 
-### input in Pres
 (John eats, w_x) entails:
 
 	(Nec, John ate, w_n)	for all n > x
@@ -389,7 +446,6 @@ Given our definition of tenses as listed above, we derive the following entailme
 	(Nec, John will_eat, w_n)	for all n < x
 
 
-### input in Fut
 (John will_eat, w_x) entails:
 
 	(Nec, John eats, w_n)	with n = (length model)		if x = n - 1
@@ -422,6 +478,7 @@ entailments prop worldID = case propTense prop of
 		
 		maxWorldID = length model
 
+		worlds :: Int -> Int -> ModalOperator -> Prop -> [(ModalOperator, String, Prop)]
 		worlds minID maxID modalOp resultProp =
 			let
 				normMinID = max 1 minID
@@ -429,6 +486,7 @@ entailments prop worldID = case propTense prop of
 			in
 				[(modalOp, "w" ++ (show n), resultProp) | n <- [normMinID..normMaxID]]
 
+		worldsNoPres :: Int -> Int -> ModalOperator -> Prop -> [(ModalOperator, String, Prop)]
 		worldsNoPres minID maxID modalOp resultProp =
 			let 
 				normMinID = max 1 minID
@@ -438,6 +496,7 @@ entailments prop worldID = case propTense prop of
 					not (propPres `elem` (propositions $ model!!(n-1)))
 					]
 
+		entailmentsFromPastOrPerf :: Prop -> [(ModalOperator, String, Prop)]
 		entailmentsFromPastOrPerf prop =
 			(worlds worldID maxWorldID Necessarily propPast) ++
 			(worldsNoPres worldID maxWorldID Necessarily propPerf) ++
@@ -446,12 +505,14 @@ entailments prop worldID = case propTense prop of
 				else worlds 1 (worldID - 1) Possibly propPres
 			)
 
+		entailmentsFromPres :: Prop -> [(ModalOperator, String, Prop)]
 		entailmentsFromPres prop =
 			(worlds (worldID + 1) maxWorldID Necessarily propPast) ++
 			(worldsNoPres (worldID + 1) maxWorldID Necessarily propPerf) ++
 			[(Necessarily, "w" ++ (show worldID), propPres)] ++
 			(worlds 1 (worldID - 1) Necessarily propFut)
 
+		entailmentsFromFut :: Prop -> [(ModalOperator, String, Prop)]
 		entailmentsFromFut prop =
 			(if worldID == maxWorldID - 1
 				then [(Necessarily, "w" ++ (show maxWorldID), propPres)]
@@ -472,5 +533,7 @@ propTense prop = head $ P.tense $ P.fs $ P.t2c $ P.subtree (head $ prs prop) [1]
 runWorldTests = runUnitTests [
 	runTests conjugVerbTests,
 	runTests conjugPropTests,
-	runTests isSatisfiedPropTests
+	runTests isSatisfiedPropTests,
+	runTests isSatisfiedTests
+	--runTests isSatisfiableTests
 	]
