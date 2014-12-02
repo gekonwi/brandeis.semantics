@@ -9,7 +9,6 @@ import VerbRoot
 import Data.List
 import Data.Maybe
 
-
 {-
 =============================================================================================================
 Disclaimer
@@ -62,19 +61,14 @@ data TProp = TProp { tempOp :: TemporalOperator,
 
 data World = World { propositions :: [Prop] } deriving (Show, Eq)
 
-w1 = World { propositions = [("john eats"),
-	("the wizard smiles"), ("georg sleeps")] }
-w2 = World { propositions = [("john eats"),
-	("georg sleeps")] }
-w3 = World { propositions = [("john eats"),
-	("amy catches"), ("georg sleeps"), ("they attest")] }
-w4 = World { propositions = [("john eats"),
-	("georg sleeps"), ("amy catches"), ("they attest")] }
-w5 = World { propositions = [("john eats"),
-	("amy catches"), ("tim averts"), ("they attest")] }
+w1 = World { propositions = [("john eats"), ("amy sleeps"), ("the wizard smiles")] }
+w2 = World { propositions = [("john eats"), ("amy sleeps")] }
+w3 = World { propositions = [("amy catches"), ("john sleeps"), ("they attest")] }
+--w3 = World { propositions = [("john eats"), ("amy catches"), ("john sleeps"), ("they attest")] }
+w4 = World { propositions = [("john eats"), ("amy catches"), ("john sleeps"), ("they attest")] }
+w5 = World { propositions = [("john eats"), ("amy catches"), ("he averts"), ("they attest")] }
 
 model = [w1,w2,w3,w4,w5]
-
 
 -- parameters:
 -- 		verb root
@@ -195,6 +189,8 @@ conjugPropTests = [
 	]
 
 
+
+
 isValid :: TProp -> Bool
 isValid tprop = 
 	all (==True) (map (isSatisfied tprop) model)
@@ -210,7 +206,6 @@ isSatisfied (TProp tempOp prop) world =
 		P -> isSatisfiedInWorldCollection prop (previousWorlds world)
 		F -> isSatisfiedInWorldCollection prop (futureAndCurrentWorlds world)
 		G -> isSatisfiedInAllWorldCollection prop (futureAndCurrentWorlds world)
-
 
 {-
 Logic behind isSatisfiedProp:

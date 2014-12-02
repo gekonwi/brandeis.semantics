@@ -79,6 +79,12 @@ lexicon "littlemook"   =
 lexicon "atreyu"       = 
  [Cat "atreyu"     "NP" [Thrd,Masc,Sg] []]
 
+lexicon "john" = 
+ [Cat "john"  "NP" [Thrd,Masc,Sg] []]
+lexicon "amy" = 
+ [Cat "amy"   "NP" [Thrd,Fem,Sg]  []]
+
+
 lexicon "every"   = [Cat "every"   "DET" [Sg]  []]
 lexicon "all"     = [Cat "all"     "DET" [Pl]  []]
 lexicon "some"    = [Cat "some"    "DET" []    []]
