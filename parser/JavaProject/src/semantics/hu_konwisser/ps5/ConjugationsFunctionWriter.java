@@ -44,6 +44,10 @@ public class ConjugationsFunctionWriter {
 			bw.write(getFunctionEntries(verb.getVerb()));
 		}
 
+		bw.write("\n\n");
+		bw.write("conjugations x = error $ \"conjugations for [\" ++ (show x) ++ \"] not defined. "
+				+ "maybe it is just commented out?\"");
+
 		bw.flush();
 		bw.close();
 

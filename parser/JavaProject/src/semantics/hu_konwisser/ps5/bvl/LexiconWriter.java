@@ -55,8 +55,9 @@ public class LexiconWriter {
 			bw.write("\n");
 		}
 
-		// make lexicon definition exhaustive
-		bw.write("\nlexicon _ = []");
+		bw.write("\n\n");
+		bw.write("lexicon x = error $ \"lexicon entry for [\" ++ (show x) ++ \"] is not defined. "
+				+ "maybe it is just commented out?\"");
 
 		bw.flush();
 		bw.close();

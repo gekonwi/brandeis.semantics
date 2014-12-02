@@ -5149,3 +5149,5 @@ root "will_love" = "love"
 --root "yield" = "yield"
 --root "yields" = "yield"
 --root "will_yield" = "yield"
+
+root x = error $ "root for [" ++ (show x) ++ "] is not defined. maybe it is just commented out?"

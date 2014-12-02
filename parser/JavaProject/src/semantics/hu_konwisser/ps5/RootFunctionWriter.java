@@ -44,6 +44,10 @@ public class RootFunctionWriter {
 			bw.write(getRootFunctionEntries(verb.getVerb()));
 		}
 
+		bw.write("\n\n");
+		bw.write("root x = error $ \"root for [\" ++ (show x) ++ \"] is not defined. "
+				+ "maybe it is just commented out?\"");
+
 		bw.flush();
 		bw.close();
 

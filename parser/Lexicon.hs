@@ -134,9 +134,6 @@ lexicon "did"    = [Cat "did"    "AUX" [] []]
 lexicon "didn't" = [Cat "didn't" "AUX" [] []]
 
 
-lexicon "smiled"    = [Cat "smiled"    "VP" [Past] []]
-lexicon "smile"     = [Cat "smile"     "VP" [Infl]  []]
-
 lexicon "cheered"   = [Cat "cheered"   "VP" [Past] []]
 lexicon "cheer"     = [Cat "cheer"     "VP" [Infl]  []]
 
@@ -17979,29 +17976,29 @@ lexicon "will_shout" = [
 --	Cat "will_sketch" "VP" [Fut] [Cat "_" "NP" [AccOrDat] []]
 --	]
 
---lexicon "sleep" = [
---	Cat "sleep" "VP" [Pres,Sg,Fst] [],
---	Cat "sleep" "VP" [Pres,Sg,Snd] [],
---	Cat "sleep" "VP" [Pres,Pl] [],
---	Cat "sleep" "VP" [Infl] []
---	]
---lexicon "sleeps" = [
---	Cat "sleeps" "VP" [Pres,Sg,Thrd] []
---	]
---lexicon "slept" = [
---	Cat "slept" "VP" [Past] []
---	]
---lexicon "have_slept" = [
---	Cat "have_slept" "VP" [Perf,Sg,Fst] [],
---	Cat "have_slept" "VP" [Perf,Sg,Snd] [],
---	Cat "have_slept" "VP" [Perf,Pl] []
---	]
---lexicon "has_slept" = [
---	Cat "has_slept" "VP" [Perf,Sg,Thrd] []
---	]
---lexicon "will_sleep" = [
---	Cat "will_sleep" "VP" [Fut] []
---	]
+lexicon "sleep" = [
+	Cat "sleep" "VP" [Pres,Sg,Fst] [],
+	Cat "sleep" "VP" [Pres,Sg,Snd] [],
+	Cat "sleep" "VP" [Pres,Pl] [],
+	Cat "sleep" "VP" [Infl] []
+	]
+lexicon "sleeps" = [
+	Cat "sleeps" "VP" [Pres,Sg,Thrd] []
+	]
+lexicon "slept" = [
+	Cat "slept" "VP" [Past] []
+	]
+lexicon "have_slept" = [
+	Cat "have_slept" "VP" [Perf,Sg,Fst] [],
+	Cat "have_slept" "VP" [Perf,Sg,Snd] [],
+	Cat "have_slept" "VP" [Perf,Pl] []
+	]
+lexicon "has_slept" = [
+	Cat "has_slept" "VP" [Perf,Sg,Thrd] []
+	]
+lexicon "will_sleep" = [
+	Cat "will_sleep" "VP" [Fut] []
+	]
 
 --lexicon "slide" = [
 --	Cat "slide" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] []],
@@ -18173,6 +18170,41 @@ lexicon "will_shout" = [
 --	Cat "will_smell" "VP" [Fut] [Cat "_" "NP" [AccOrDat] []],
 --	Cat "will_smell" "VP" [Fut] []
 --	]
+
+lexicon "smile" = [
+	Cat "smile" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "smile" "VP" [Pres,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "smile" "VP" [Pres,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "smile" "VP" [Infl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "smile" "VP" [Pres,Sg,Fst] [],
+	Cat "smile" "VP" [Pres,Sg,Snd] [],
+	Cat "smile" "VP" [Pres,Pl] [],
+	Cat "smile" "VP" [Infl] []
+	]
+lexicon "smiles" = [
+	Cat "smiles" "VP" [Pres,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "smiles" "VP" [Pres,Sg,Thrd] []
+	]
+lexicon "smiled" = [
+	Cat "smiled" "VP" [Past] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "smiled" "VP" [Past] []
+	]
+lexicon "have_smiled" = [
+	Cat "have_smiled" "VP" [Perf,Sg,Fst] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "have_smiled" "VP" [Perf,Sg,Snd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "have_smiled" "VP" [Perf,Pl] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "have_smiled" "VP" [Perf,Sg,Fst] [],
+	Cat "have_smiled" "VP" [Perf,Sg,Snd] [],
+	Cat "have_smiled" "VP" [Perf,Pl] []
+	]
+lexicon "has_smiled" = [
+	Cat "has_smiled" "VP" [Perf,Sg,Thrd] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "has_smiled" "VP" [Perf,Sg,Thrd] []
+	]
+lexicon "will_smile" = [
+	Cat "will_smile" "VP" [Fut] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [At] []],
+	Cat "will_smile" "VP" [Fut] []
+	]
 
 --lexicon "sneak" = [
 --	Cat "sneak" "VP" [Pres,Sg,Fst] [],
@@ -21855,4 +21887,4 @@ lexicon "will_take" = [
 --	Cat "will_yield" "VP" [Fut] [Cat "_" "NP" [AccOrDat] [], Cat "_" "PP" [To] []]
 --	]
 
-lexicon _ = []
+lexicon x = error $ "lexicon entry for [" ++ (show x) ++ "] is not defined. maybe it is just commented out?"

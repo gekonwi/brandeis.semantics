@@ -749,3 +749,5 @@ conjugations "love" = ["loved", "have_loved", "has_loved", "love", "loves", "wil
 --conjugations "yearn" = ["yearned", "have_yearned", "has_yearned", "yearn", "yearns", "will_yearn"]
 --conjugations "yell" = ["yelled", "have_yelled", "has_yelled", "yell", "yells", "will_yell"]
 --conjugations "yield" = ["yielded", "have_yielded", "has_yielded", "yield", "yields", "will_yield"]
+
+conjugations x = error $ "conjugations for [" ++ (show x) ++ "] not defined. maybe it is just commented out?"
