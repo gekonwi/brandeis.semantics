@@ -326,8 +326,6 @@ entailments prop worldID = case propTense prop of
 		
 		maxWorldID = length model
 
-		propTense prop = head $ P.tense $ P.fs $ P.t2c $ P.subtree (head $ prs prop) [1]
-
 		worlds minID maxID modalOp resultProp =
 			let
 				normMinID = max 1 minID
@@ -365,6 +363,14 @@ entailments prop worldID = case propTense prop of
 				) ++
 			(worlds 1 worldID Necessarily propFut)
 
+{-
+parameters:
+		Prop: a proposition
+returns:
+		the tense of the given proposition
+-}
+propTense :: Prop -> Feat
+propTense prop = head $ P.tense $ P.fs $ P.t2c $ P.subtree (head $ prs prop) [1]
 
 
 runWorldTests = runUnitTests [
