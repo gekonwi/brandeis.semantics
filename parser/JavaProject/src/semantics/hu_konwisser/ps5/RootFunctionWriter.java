@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import semantics.hu_konwisser.ps5.bvl.BVLVerb;
-import semantics.konwisser.ps4.HaskellLexiconWriter;
+import semantics.hu_konwisser.ps5.bvl.LexiconWriter;
 
 /**
  * This class generates the Haskell VerbRoot module containing the root function
@@ -28,16 +28,16 @@ public class RootFunctionWriter {
 
 	private final Conjugator conj = new Conjugator();
 
-	public void write(Path ouput, List<BVLVerb> verbs) throws IOException {
-		System.out.println("RootFunctionWriter: Strarting writing " + ouput);
+	public void write(Path output, List<BVLVerb> verbs) throws IOException {
+		System.out.println("RootFunctionWriter: Strarting writing " + output);
 
-		Files.copy(ROOT_HEAD_PATH, ouput, REPLACE_EXISTING);
+		Files.copy(ROOT_HEAD_PATH, output, REPLACE_EXISTING);
 
-		BufferedWriter bw = Files.newBufferedWriter(ouput,
+		BufferedWriter bw = Files.newBufferedWriter(output,
 				Charset.forName("UTF-8"), APPEND);
 
 		for (BVLVerb verb : verbs) {
-			if (!HaskellLexiconWriter.isRelevant(verb))
+			if (!LexiconWriter.isRelevant(verb))
 				continue;
 
 			bw.write("\n");

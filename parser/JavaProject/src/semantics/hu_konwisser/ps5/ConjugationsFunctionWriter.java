@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import semantics.hu_konwisser.ps5.bvl.BVLVerb;
-import semantics.konwisser.ps4.HaskellLexiconWriter;
+import semantics.hu_konwisser.ps5.bvl.LexiconWriter;
 
 /**
  * This class generates the Haskell Conjugations module containing the
@@ -38,7 +38,7 @@ public class ConjugationsFunctionWriter {
 				Charset.forName("UTF-8"), APPEND);
 
 		for (BVLVerb verb : verbs) {
-			if (!HaskellLexiconWriter.isRelevant(verb))
+			if (!LexiconWriter.isRelevant(verb))
 				continue;
 
 			bw.write(getFunctionEntries(verb.getVerb()));

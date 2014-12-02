@@ -1,24 +1,30 @@
-package semantics.konwisser.ps4;
+package semantics.hu_konwisser.ps5.bvl;
+
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+import static java.nio.file.StandardOpenOption.APPEND;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import semantics.hu_konwisser.ps5.Conjugator;
 import semantics.hu_konwisser.ps5.Conjugator.Perfect;
-import semantics.hu_konwisser.ps5.bvl.BVLRules;
-import semantics.hu_konwisser.ps5.bvl.BVLVerb;
+import semantics.konwisser.ps4.TransformationRule;
 import simplenlg.features.Person;
 import simplenlg.features.Tense;
 
-public class HaskellLexiconWriter {
+public class LexiconWriter {
 
 	private final Conjugator conj = new Conjugator();
+
+	private static final Path LEXICON_HEAD_PATH = Paths.get("static",
+			"lexicon_head.hs");
 
 	public static boolean isRelevant(BVLVerb verb) {
 		// we ignore those
@@ -34,23 +40,31 @@ public class HaskellLexiconWriter {
 	}
 
 	public void write(Path output, List<BVLVerb> verbs) throws IOException {
-		Charset utf8 = Charset.forName("UTF-8");
-		BufferedWriter bw = Files.newBufferedWriter(output, utf8);
+		System.out.println("LexiconWriter: Strarting writing " + output);
+
+		Files.copy(LEXICON_HEAD_PATH, output, REPLACE_EXISTING);
+
+		BufferedWriter bw = Files.newBufferedWriter(output,
+				Charset.forName("UTF-8"), APPEND);
 
 		for (BVLVerb verb : verbs) {
 			if (!isRelevant(verb))
 				continue;
 
-			String haskellRep = getHaskellRepresentation(verb);
-			bw.write(haskellRep);
+			bw.write(getVerbEntries(verb));
 			bw.write("\n");
 		}
 
+		// make lexicon definition exhaustive
+		bw.write("\nlexicon _ = []");
+
 		bw.flush();
 		bw.close();
+
+		System.out.println("LexiconWriter: done");
 	}
 
-	private String getHaskellRepresentation(BVLVerb verb) {
+	private String getVerbEntries(BVLVerb verb) {
 
 		StringBuilder sb = new StringBuilder();
 		String infinitive = verb.getVerb();
