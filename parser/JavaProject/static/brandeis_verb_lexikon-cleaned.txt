@@ -729,6 +729,7 @@ SHAVE       DO              INTRANS         DO-P_from-NP
 SHINE       INTRANS         DO              P_dir-NP          DO-P_dir-NP
 SHOOT       DO
 SHOP        P_for-NP
+SHOUT		INTRANS			P_at-NP
 SHOW        DO              DO-TONP         IO-DO           DO-THAT         THAT	DO-INFQ-WH
 SHRINK      INTRANS         DO
 SHUN        DO
@@ -791,7 +792,7 @@ SWEAR       THAT            DO              TONP-THAT       TOVP-SC
 SWEAT       INTRANS
 SYMBOLIZE   DO
 TACKLE      DO
-TAKE        DO              DO-TONP         IO-DO
+TAKE        DO              DO-TONP         IO-DO			P_from-NP
 TAKE-CARE   TOVP-SC         THAT
 TALK        INTRANS         TONP            TONP-P_about-NP      P_about-NP
 TAME        DO

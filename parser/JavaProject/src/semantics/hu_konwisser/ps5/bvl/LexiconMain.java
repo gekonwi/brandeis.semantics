@@ -1,21 +1,18 @@
-package semantics.konwisser.ps4;
+package semantics.hu_konwisser.ps5.bvl;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import semantics.hu_konwisser.ps5.bvl.BVLReader;
-import semantics.hu_konwisser.ps5.bvl.BVLVerb;
-
-public class Main {
+public class LexiconMain {
 	public static void main(String[] args) throws IOException {
 		Path input = Paths.get("static", "brandeis_verb_lexikon-cleaned.txt");
-		Path ouput = Paths.get("generated", "haskell_generated.hs");
+		Path ouput = Paths.get("generated", "Lexicon.hs");
 
 		List<BVLVerb> verbs = BVLReader.readVerbs(input);
 
-		HaskellLexiconWriter writer = new HaskellLexiconWriter();
+		LexiconWriter writer = new LexiconWriter();
 		writer.write(ouput, verbs);
 	}
 }

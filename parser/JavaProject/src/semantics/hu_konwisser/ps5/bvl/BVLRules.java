@@ -26,6 +26,7 @@ public class BVLRules {
 		rules.add(IO_DO());
 		rules.add(DO_TONP());
 		rules.addAll(P_prep_NP());
+		rules.add(INTRANS());
 	}
 
 	public static Map<String, Set<TransformationRule>> getApplicableRules(
@@ -46,6 +47,12 @@ public class BVLRules {
 		}
 
 		return result;
+	}
+
+	private static TransformationRule INTRANS() {
+		String pattern = "INTRANS";
+		String output = "Cat \"<verb>\" \"VP\" [Infl] []";
+		return new TransformationRule(pattern, output);
 	}
 
 	private static TransformationRule DO() {
