@@ -6878,28 +6878,40 @@ lexicon "will_abandon" = [
 --  Cat "will_earn" "VP" [Fut] [Cat "_" "NP" [AccOrDat] []]
 --  ]
 
+
 lexicon "eat" = [
   Cat "eat" "VP" [Pres,Sg,Fst] [Cat "_" "NP" [AccOrDat] []],
+  Cat "eat" "VP" [Pres,Sg,Fst] [],
   Cat "eat" "VP" [Pres,Sg,Snd] [Cat "_" "NP" [AccOrDat] []],
+  Cat "eat" "VP" [Pres,Sg,Snd] [],
   Cat "eat" "VP" [Pres,Pl] [Cat "_" "NP" [AccOrDat] []],
-  Cat "eat" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []]
+  Cat "eat" "VP" [Pres,Pl] [],
+  Cat "eat" "VP" [Infl] [Cat "_" "NP" [AccOrDat] []],
+  Cat "eat" "VP" [Infl] []
   ]
 lexicon "eats" = [
-  Cat "eats" "VP" [Pres,Sg,Thrd] [Cat "_" "NP" [AccOrDat] []]
+  Cat "eats" "VP" [Pres,Sg,Thrd] [Cat "_" "NP" [AccOrDat] []],
+  Cat "eats" "VP" [Pres,Sg,Thrd] []
   ]
 lexicon "ate" = [
-  Cat "ate" "VP" [Past] [Cat "_" "NP" [AccOrDat] []]
+  Cat "ate" "VP" [Past] [Cat "_" "NP" [AccOrDat] []],
+  Cat "ate" "VP" [Past] []
   ]
 lexicon "have_eaten" = [
   Cat "have_eaten" "VP" [Perf,Sg,Fst] [Cat "_" "NP" [AccOrDat] []],
+  Cat "have_eaten" "VP" [Perf,Sg,Fst] [],
   Cat "have_eaten" "VP" [Perf,Sg,Snd] [Cat "_" "NP" [AccOrDat] []],
-  Cat "have_eaten" "VP" [Perf,Pl] [Cat "_" "NP" [AccOrDat] []]
+  Cat "have_eaten" "VP" [Perf,Sg,Snd] [],
+  Cat "have_eaten" "VP" [Perf,Pl] [Cat "_" "NP" [AccOrDat] []],
+  Cat "have_eaten" "VP" [Perf,Pl] []
   ]
 lexicon "has_eaten" = [
-  Cat "has_eaten" "VP" [Perf,Sg,Thrd] [Cat "_" "NP" [AccOrDat] []]
+  Cat "has_eaten" "VP" [Perf,Sg,Thrd] [Cat "_" "NP" [AccOrDat] []],
+  Cat "has_eaten" "VP" [Perf,Sg,Thrd] []
   ]
 lexicon "will_eat" = [
-  Cat "will_eat" "VP" [Fut] [Cat "_" "NP" [AccOrDat] []]
+  Cat "will_eat" "VP" [Fut] [Cat "_" "NP" [AccOrDat] []],
+  Cat "will_eat" "VP" [Fut] []
   ]
 
 --lexicon "echo" = [
