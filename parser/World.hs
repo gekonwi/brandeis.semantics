@@ -61,12 +61,11 @@ data TProp = TProp { tempOp :: TemporalOperator,
 
 data World = World { propositions :: [Prop] } deriving (Show, Eq)
 
-w1 = World { propositions = [("john eats"), ("amy sleeps"), ("the wizard smiles")] }
-w2 = World { propositions = [("john eats"), ("amy sleeps")] }
-w3 = World { propositions = [("amy catches"), ("john sleeps"), ("they attest")] }
---w3 = World { propositions = [("john eats"), ("amy catches"), ("john sleeps"), ("they attest")] }
-w4 = World { propositions = [("john eats"), ("amy catches"), ("john sleeps"), ("they attest")] }
-w5 = World { propositions = [("john eats"), ("amy catches"), ("he averts"), ("they attest")] }
+w1 = World { propositions = [("the princess loves the dwarf"), ("john eats"), ("amy sleeps"), ("the wizard smiles")] }
+w2 = World { propositions = [("the princess loves the dwarf"), ("john eats"), ("amy sleeps")] }
+w3 = World { propositions = [("the princess loves the dwarf"),                ("amy catches"), ("john sleeps"), ("they attest")] }
+w4 = World { propositions = [("the princess loves the dwarf"), ("john eats"), ("amy catches"), ("john sleeps"), ("they attest")] }
+w5 = World { propositions = [("the princess loves the dwarf"), ("john eats"), ("amy catches"), ("he averts"), ("they attest")] }
 
 model = [w1,w2,w3,w4,w5]
 
@@ -207,6 +206,57 @@ isSatisfied (TProp tempOp prop) world =
 		F -> isSatisfiedInSomeWorlds prop (futureAndCurrentWorlds world)
 		G -> isSatisfiedInAllWorlds prop (futureAndCurrentWorlds world)
 
+isSatisfiedTests = [
+	("isSatisfied (TProp H 'the wizard smiles') w1", isSatisfied (TProp H "the wizard smiles") w1, False),
+	("isSatisfied (TProp H 'the wizard smiles') w2", isSatisfied (TProp H "the wizard smiles") w2, True),
+	("isSatisfied (TProp H 'the wizard smiles') w3", isSatisfied (TProp H "the wizard smiles") w3, False),
+	("isSatisfied (TProp H 'the wizard smiled') w1", isSatisfied (TProp H "the wizard smiled") w1, False),
+	("isSatisfied (TProp H 'the wizard smiled') w2", isSatisfied (TProp H "the wizard smiled") w2, False),
+	("isSatisfied (TProp H 'the wizard smiled') w3", isSatisfied (TProp H "the wizard smiled") w3, False),
+	("isSatisfied (TProp H 'amy will_sleep') w1", isSatisfied (TProp H "amy will_sleep") w1, False),
+	("isSatisfied (TProp H 'amy will_sleep') w2", isSatisfied (TProp H "amy will_sleep") w2, True),
+	("isSatisfied (TProp H 'amy will_sleep') w3", isSatisfied (TProp H "amy will_sleep") w3, False),
+	("isSatisfied (TProp H 'amy will_sleep') w4", isSatisfied (TProp H "amy will_sleep") w4, False),
+	("isSatisfied (TProp H 'amy will_sleep') w5", isSatisfied (TProp H "amy will_sleep") w5, False),
+	("isSatisfied (TProp H 'the princess will_love the dwarf') w5", isSatisfied (TProp H "the princess will_love the dwarf") w5, True),
+	("isSatisfied (TProp H 'amy will_catch') w5", isSatisfied (TProp H "amy will_catch") w5, False),
+	("isSatisfied (TProp P 'the wizard smiles') w1", isSatisfied (TProp P "the wizard smiles") w1, False),
+	("isSatisfied (TProp P 'the wizard smiles') w2", isSatisfied (TProp P "the wizard smiles") w2, True),
+	("isSatisfied (TProp P 'the wizard smiles') w3", isSatisfied (TProp P "the wizard smiles") w3, True),
+	("isSatisfied (TProp P 'the wizard smiled') w1", isSatisfied (TProp P "the wizard smiled") w1, False),
+	("isSatisfied (TProp P 'the wizard smiled') w2", isSatisfied (TProp P "the wizard smiled") w2, False),
+	("isSatisfied (TProp P 'the wizard smiled') w3", isSatisfied (TProp P "the wizard smiled") w3, True),
+	("isSatisfied (TProp P 'the wizard smiled') w4", isSatisfied (TProp P "the wizard smiled") w4, True),
+	("isSatisfied (TProp P 'the wizard smiled') w5", isSatisfied (TProp P "the wizard smiled") w5, True),
+	("isSatisfied (TProp P 'john has_eaten') w2", isSatisfied (TProp P "john has_eaten") w2, False),
+	("isSatisfied (TProp P 'john has_eaten') w3", isSatisfied (TProp P "john has_eaten") w3, False),
+	("isSatisfied (TProp P 'john has_eaten') w4", isSatisfied (TProp P "john has_eaten") w4, True),
+	("isSatisfied (TProp P 'john has_eaten') w5", isSatisfied (TProp P "john has_eaten") w5, True),
+	("isSatisfied (TProp F 'they will_attest') w1", isSatisfied (TProp F "they will_attest") w1, True),
+	("isSatisfied (TProp F 'they will_attest') w2", isSatisfied (TProp F "they will_attest") w2, True),
+	("isSatisfied (TProp F 'they will_attest') w3", isSatisfied (TProp F "they will_attest") w3, True),
+	("isSatisfied (TProp F 'they will_attest') w4", isSatisfied (TProp F "they will_attest") w4, True),
+	("isSatisfied (TProp F 'they will_attest') w5", isSatisfied (TProp F "they will_attest") w5, False),
+	("isSatisfied (TProp F 'john sleeps') w1", isSatisfied (TProp F "john sleeps") w1, True),
+	("isSatisfied (TProp F 'john sleeps') w2", isSatisfied (TProp F "john sleeps") w2, True),
+	("isSatisfied (TProp F 'john sleeps') w3", isSatisfied (TProp F "john sleeps") w3, True),
+	("isSatisfied (TProp F 'john sleeps') w4", isSatisfied (TProp F "john sleeps") w4, True),
+	("isSatisfied (TProp F 'john sleeps') w5", isSatisfied (TProp F "john sleeps") w5, False),
+	("isSatisfied (TProp G 'amy has_slept') w2", isSatisfied (TProp G "amy has_slept") w2, False),
+	("isSatisfied (TProp G 'amy has_slept') w3", isSatisfied (TProp G "amy has_slept") w3, True),
+	("isSatisfied (TProp G 'amy has_slept') w4", isSatisfied (TProp G "amy has_slept") w4, True),
+	("isSatisfied (TProp G 'amy has_slept') w5", isSatisfied (TProp G "amy has_slept") w5, True),
+	("isSatisfied (TProp G 'they will attest') w1", isSatisfied (TProp G "they will attest") w1, False),
+	("isSatisfied (TProp G 'they will attest') w2", isSatisfied (TProp G "they will attest") w2, False),
+	("isSatisfied (TProp G 'they will attest') w3", isSatisfied (TProp G "they will attest") w3, False),
+	("isSatisfied (TProp G 'the princess loves the dwarf') w1", isSatisfied (TProp G "the princess loves the dwarf") w1, True),
+	("isSatisfied (TProp G 'the princess loves the dwarf') w2", isSatisfied (TProp G "the princess loves the dwarf") w2, True),
+	("isSatisfied (TProp G 'the princess loves the dwarf') w3", isSatisfied (TProp G "the princess loves the dwarf") w3, True),
+	("isSatisfied (TProp G 'the princess loves the dwarf') w4", isSatisfied (TProp G "the princess loves the dwarf") w4, True),
+	("isSatisfied (TProp G 'the princess loves the dwarf') w5", isSatisfied (TProp G "the princess loves the dwarf") w5, True)
+	]
+
+
 {-
 Logic behind isSatisfiedProp:
 
@@ -243,7 +293,7 @@ isSatisfiedPropTests = [
 	("isSatisfiedProp 'John eats' w3", isSatisfiedProp "John eats" w3, False),
 	("isSatisfiedProp 'John eats' w4", isSatisfiedProp "John eats" w4, True),
 	("isSatisfiedProp 'John eats' w5", isSatisfiedProp "John eats" w5, True),
-	
+
 	("isSatisfiedProp 'John will_eat' w1", isSatisfiedProp "John will_eat" w1, True),
 	("isSatisfiedProp 'John will_eat' w2", isSatisfiedProp "John will_eat" w2, True),
 	("isSatisfiedProp 'John will_eat' w3", isSatisfiedProp "John will_eat" w3, True),
