@@ -63,15 +63,15 @@ data TProp = TProp { tempOp :: TemporalOperator,
 data World = World { propositions :: [Prop] } deriving (Show, Eq)
 
 w1 = World { propositions = [("john eats"),
-	("the wizard smiled"), ("georg will_sleep")] }
+	("the wizard smiles"), ("georg sleeps")] }
 w2 = World { propositions = [("john eats"),
-	("georg will_sleep")] }
+	("georg sleeps")] }
 w3 = World { propositions = [("john eats"),
-	("amy catches"), ("georg will_sleep"), ("they attest")] }
+	("amy catches"), ("georg sleeps"), ("they attest")] }
 w4 = World { propositions = [("john eats"),
-	("georg will_sleep"), ("amy catches"), ("they will_attest")] }
+	("georg sleeps"), ("amy catches"), ("they attest")] }
 w5 = World { propositions = [("john eats"),
-	("amy catches"), ("tim has_averted"), ("they will_attest")] }
+	("amy catches"), ("tim averts"), ("they attest")] }
 
 model = [w1,w2,w3,w4,w5]
 
@@ -196,30 +196,46 @@ conjugPropTests = [
 
 
 isValid :: TProp -> Bool
-isValid (TProp tempOp prop) = 
-	case tempOp of
-		H -> existsInAllWorldCollection prop (previousAndCurrentWorlds w5)
-		P -> existsInWorldCollection prop (previousAndCurrentWorlds w1)
-		F -> existsInWorldCollection prop (futureAndCurrentWorlds w5)
-		G -> existsInAllWorldCollection prop (futureAndCurrentWorlds w1)
-
+isValid tprop = 
+	all (==True) (map (isSatisfied tprop) model)
 
 isSatisfiable :: TProp -> Bool
-isSatisfiable (TProp tempOp prop) = 
-	existsInWorldCollection prop model
+isSatisfiable tprop = 
+	any (==True) (map (isSatisfied tprop) model)
 	
 isSatisfied :: TProp -> World -> Bool
 isSatisfied (TProp tempOp prop) world =
 	case tempOp of
-		H -> existsInAllWorldCollection prop (previousAndCurrentWorlds world)
-		P -> existsInWorldCollection prop (previousAndCurrentWorlds world)
-		F -> existsInWorldCollection prop (futureAndCurrentWorlds world)
-		G -> existsInAllWorldCollection prop (futureAndCurrentWorlds world)
+		H -> isSatisfiedInAllWorldCollection prop (previousWorlds world)
+		P -> isSatisfiedInWorldCollection prop (previousWorlds world)
+		F -> isSatisfiedInWorldCollection prop (futureAndCurrentWorlds world)
+		G -> isSatisfiedInAllWorldCollection prop (futureAndCurrentWorlds world)
 
+isSatisfiedProp :: Prop -> World -> Bool
+isSatisfiedProp prop world = 
+	case propTense prop of
+		Past -> existsInWorldCollection propPres (previousWorlds world)
+		Perf -> (existsInWorldCollection propPres (previousWorlds world)) && (not (existsInWorld propPres world))
+		Pres -> existsInWorld propPres world
+		Fut -> existsInWorldCollection propPres (futureWorlds world)
+	where
+		propPres = conjugProp prop Pres
 
-previousAndCurrentWorlds :: World -> [World]
-previousAndCurrentWorlds world = 
-	take ((fromJust (elemIndex world model))+1) $ model
+isSatisfiedInWorldCollection :: Prop -> [World] -> Bool
+isSatisfiedInWorldCollection prop worlds =
+    any (==True) (map (isSatisfiedProp prop) worlds)
+
+isSatisfiedInAllWorldCollection :: Prop -> [World] -> Bool
+isSatisfiedInAllWorldCollection prop worlds =
+    all (==True) (map (isSatisfiedProp prop) worlds)
+
+previousWorlds :: World -> [World]
+previousWorlds world = 
+	take ((fromJust (elemIndex world model))) $ model
+
+futureWorlds :: World -> [World]
+futureWorlds world = 
+	drop (fromJust (elemIndex world model)+1) . take 5 $ model
 
 futureAndCurrentWorlds :: World -> [World]
 futureAndCurrentWorlds world = 
@@ -239,10 +255,10 @@ existsInAllWorldCollection prop worlds =
 
 -- Test Data
 tp1 = TProp { tempOp = P, prop = "john eats" }
-tp2 = TProp { tempOp = F, prop = "tim has_averted" }
+tp2 = TProp { tempOp = F, prop = "tim averts" }
 tp3 = TProp { tempOp = H, prop = "amy catches" }
 tp4 = TProp { tempOp = P, prop = "amy catches" }
-tp5 = TProp { tempOp = G, prop = "they will_attest" }
+tp5 = TProp { tempOp = G, prop = "they attest" }
 
 -- quick tests (c&p)
 	-- isSatisfied tp3 w3 
